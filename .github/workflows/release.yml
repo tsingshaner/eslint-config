@@ -1,0 +1,45 @@
+name: release
+
+on:
+  push:
+    branches: ['main']
+
+concurrency: ${{ github.workflow }}-${{ github.ref }}
+
+permissions:
+  contents: write
+  pull-requests: write
+  packages: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [20]
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
+        run: pnpm i
+      - name: Unit Test
+        run: pnpm test
+      - name: Create Release Pull Request
+        uses: changesets/action@v1
+        with:
+          commit: 'chore(release): update release & CHANGELOG.md'
+          title: '📦 Update Packages Version'
+          publish: pnpm changeset-publish
+          version: pnpm changeset-version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

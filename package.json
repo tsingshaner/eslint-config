@@ -31,7 +31,7 @@
     "test:dev": "vitest -c config/vitest.config.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.7.3",
+    "@biomejs/biome": "^1.8.3",
     "@changesets/cli": "^2.27.1",
     "@eslint/js": "^9.2.0",
     "@types/node": "^20.12.11",

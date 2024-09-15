@@ -5,13 +5,13 @@
   },
   "formatter": {
     "indentStyle": "space",
-    "lineWidth": 100
+    "lineWidth": 120
   },
   "javascript": {
     "formatter": {
       "quoteStyle": "single",
       "semicolons": "asNeeded",
-      "trailingComma": "none"
+      "trailingCommas": "none"
     },
     "parser": {
       "unsafeParameterDecoratorsEnabled": true

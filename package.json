@@ -55,5 +55,8 @@
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "pre-push": "pnpm test"
+  },
+  "dependencies": {
+    "@eslint/compat": "^1.1.1"
   }
 }

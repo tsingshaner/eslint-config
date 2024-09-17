@@ -11,7 +11,7 @@ export { includeIgnoreFile, convertIgnorePatternToMinimatch }
  */
 export const defineGlobalIgnore = (patterns: string[], ignoreFileAbsolutePath?: string): Linter.Config => {
   const config = {
-    name: '@qingshaner/global-ignore',
+    name: 'qingshaner/global-ignore',
     ignores: patterns.map(convertIgnorePatternToMinimatch)
   }
 

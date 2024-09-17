@@ -9,11 +9,12 @@ export default defineConfig({
   bundle: true,
   target: 'esnext',
   entry: {
-    core: resolve(sourceDir, 'core/index.ts')
+    index: resolve(sourceDir, 'index.ts')
   },
   outDir: 'dist',
   dts: true,
-  tsconfig: resolve(currentPath, 'tsconfig.app.json'),
-  format: 'esm',
+  tsconfig: resolve(currentPath, 'tsconfig.lib.json'),
+  format: ['esm', 'cjs'],
+  minify: true,
   clean: true
 })

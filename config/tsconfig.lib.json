@@ -1,19 +1,19 @@
 {
   "include": ["../src", "../test"],
   "compilerOptions": {
-    "module": "ESNext",
-    "moduleResolution": "bundler",
+    "module": "esnext",
+    "moduleResolution": "node",
     "rootDir": "..",
     "resolveJsonModule": true,
     "noImplicitThis": true,
     "strict": true,
     "verbatimModuleSyntax": true,
-    "target": "ES2020",
+    "target": "es2023",
     "useDefineForClassFields": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
-    "lib": ["ES2023", "DOM"],
+    "lib": ["esnext"],
     "types": [],
     "baseUrl": "..",
     "paths": {

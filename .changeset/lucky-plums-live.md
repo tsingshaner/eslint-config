@@ -1,5 +1,5 @@
 ---
-"template": patch
+"@qingshaner/eslint-config": patch
 ---
 
 init release

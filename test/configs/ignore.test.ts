@@ -1,13 +1,14 @@
 import { fileURLToPath } from 'node:url'
+
 import { describe } from 'vitest'
 
-import { defineGlobalIgnore } from '@/configs/ignore'
+import { defineGlobalIgnore } from '../../src/configs'
 
 describe('test ignores config', (test) => {
   test('global ignore', ({ expect }) => {
     const config = defineGlobalIgnore(['src/core.ts'])
 
-    expect(Reflect.ownKeys(config)).toStrictEqual(['name', 'ignores'])
+    expect(Reflect.ownKeys(config)).toStrictEqual(['ignores', 'name'])
     expect(config.ignores).toStrictEqual(['src/core.ts'])
   })
 
@@ -15,7 +16,7 @@ describe('test ignores config', (test) => {
     const gitignore = fileURLToPath(new URL('../../.gitignore', import.meta.url))
     const config = defineGlobalIgnore(['src/core.ts'], gitignore)
 
-    expect(Reflect.ownKeys(config)).toStrictEqual(['name', 'ignores'])
+    expect(Reflect.ownKeys(config)).toStrictEqual(['ignores', 'name'])
     expect(config.ignores).toMatchInlineSnapshot(`
       [
         "**/dist",
@@ -30,6 +31,8 @@ describe('test ignores config', (test) => {
         ".vscode/**/*",
         "!.vscode/settings.json",
         "!.vscode/extensions.json",
+        "src/configs/biome.ts",
+        "src/*.rule.d.ts",
         "src/core.ts",
       ]
     `)

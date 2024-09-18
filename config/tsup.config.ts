@@ -1,20 +1,21 @@
-import { defineConfig } from 'tsup'
 import { resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import { defineConfig } from 'tsup'
 
 const currentPath = fileURLToPath(new URL('.', import.meta.url))
 const sourceDir = resolve(currentPath, '../src')
 
 export default defineConfig({
   bundle: true,
-  target: 'esnext',
+  clean: true,
+  dts: true,
   entry: {
     index: resolve(sourceDir, 'index.ts')
   },
-  outDir: 'dist',
-  dts: true,
-  tsconfig: resolve(currentPath, 'tsconfig.lib.json'),
   format: ['esm', 'cjs'],
   minify: true,
-  clean: true
+  outDir: 'dist',
+  target: 'esnext',
+  tsconfig: resolve(currentPath, 'tsconfig.lib.json')
 })

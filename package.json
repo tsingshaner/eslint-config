@@ -8,6 +8,13 @@
     "url": "https://github.com/Jon-a-than"
   },
   "license": "MIT",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "main": "dist/index.js",
   "files": [
     "biome.json",
     "dist"
@@ -38,6 +45,7 @@
   "dependencies": {
     "@antfu/eslint-config": "^3.6.2",
     "@eslint/compat": "^1.1.1",
+    "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-perfectionist": "^3.6.0",
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.9.0",

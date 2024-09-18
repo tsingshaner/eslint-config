@@ -6,15 +6,17 @@ import {
   defineGlobalIgnore,
   formatter,
   javascript,
+  jsonc,
   perfectionist,
   typescript
 } from './src'
 
 export default defineESLintConfig(async () => [
-  defineGlobalIgnore(['pnpm-lock.yaml'], resolve(__dirname, '.gitignore')),
+  defineGlobalIgnore(['pnpm-lock.yaml', './test/fixtures/inout/**'], resolve(__dirname, '.gitignore')),
   javascript(),
   ...(await formatter()),
-  ...typescript(resolve(__dirname, 'tsconfig.json')),
+  ...jsonc(),
+  ...typescript(__dirname),
   perfectionist(),
   banBiomeRepetitiveConfig()
 ])

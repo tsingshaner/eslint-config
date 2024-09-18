@@ -4,6 +4,9 @@ export { defineGlobalIgnore } from './ignore'
 export { defineJavaScriptConfig, javascript } from './javascript'
 export type { JavaScriptConfigCollection } from './javascript'
 
+export { defineJSONCConfig, jsonc } from './jsonc'
+export type { JSONCConfig, JSONCConfigCollection, JSONCConfigOverrideOptions } from './jsonc'
+
 export { definePerfectionistConfig, perfectionist } from './perfectionist'
 export type { PerfectionistConfig, PerfectionistConfigCollection, PerfectionistOverrideOptions } from './perfectionist'
 
@@ -12,7 +15,7 @@ export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './ty
 
 export { unocss, vue } from '@antfu/eslint-config'
 
-import { formatters, jsonc, sortPackageJson, sortTsconfig } from '@antfu/eslint-config'
+import { formatters } from '@antfu/eslint-config'
 
 import type { Linter } from 'eslint'
 export async function formatter() {
@@ -29,9 +32,15 @@ export async function formatter() {
       slidev: false,
       svg: false,
       xml: false
-    }),
-    await jsonc(),
-    await sortPackageJson(),
-    sortTsconfig()
+    })
   ].flat() as Linter.Config[]
 }
+
+export interface QingshanerESLintOptions {
+  formatter?: boolean
+  perfectionist?: boolean
+  typescript?: boolean
+  useBiome?: boolean
+  vue?: boolean
+}
+export const qingshanerESLintConfig = () => {}

@@ -7,7 +7,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import type { Linter } from 'eslint'
 
-import { perfectionist, typescript } from '../src/configs'
+import { jsonc, perfectionist, typescript } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]
@@ -32,6 +32,11 @@ async function main() {
       ],
       exportName: 'JavaScriptRuleOptions',
       outputFileName: resolve(ROOT_DIR, 'javascript.rule.d.ts')
+    },
+    {
+      configs: jsonc(),
+      exportName: 'JSONCRuleOptions',
+      outputFileName: resolve(ROOT_DIR, 'jsonc.rule.d.ts')
     },
     {
       configs: typescript('tsconfigRootDir') as Linter.Config[],

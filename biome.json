@@ -33,7 +33,12 @@
   },
   "json": {
     "formatter": {
-      "enabled": true
+      "enabled": true,
+      "indentWidth": 2,
+      "trailingCommas": "none",
+      "indentStyle": "space",
+      "lineEnding": "lf",
+      "lineWidth": 100
     }
   },
   "linter": {

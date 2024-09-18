@@ -4,6 +4,7 @@ import type { ConfigWithExtends } from 'typescript-eslint'
 export * from './configs'
 
 export type * from './javascript.rule'
+export type * from './jsonc.rule'
 export type * from './perfectionist.rule'
 export type * from './typescript.rule'
 

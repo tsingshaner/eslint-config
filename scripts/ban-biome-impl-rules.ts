@@ -45,7 +45,7 @@ const fetchBiomeRulesMdx = async () => {
 const cleanRuleMdx = (mdx: string) => {
   const tableRegex = /(\|.*?\|(?:\r?\n|\r)\|(?:[-:| ]+)\|(?:\r?\n|\r)(?:\|.*?\|(?:\r?\n|\r))*)/g
 
-  const tables: string[] = mdx.trim().match(tableRegex) || []
+  const tables: string[] = mdx.trim().match(tableRegex) ?? []
 
   return tables.map((table) => {
     const rows = table
@@ -79,10 +79,10 @@ const parseBannedRules = (tables: string[][]): string[] => {
   console.info(`Processing plugin: ${plugin[0]} prfix: ${plugin[1]}`)
 
   return tables.splice(2).map((row) => {
-    const rule = row[0].match(/^\[(.*)\]/)
+    const rule = /^\[(.*)\]/.exec(row[0])
 
     if (rule === null) {
-      console.error(`Rule not found on row: ${row}`)
+      console.error(`Rule not found on row: ${row.join(' | ')}`)
       exit(1)
     }
 
@@ -103,7 +103,7 @@ async function main() {
   }, {})
 
   const config = {
-    name: 'qingshaner/eslint-config-biome',
+    name: 'qingshaner/biome/banned',
     rules
   }
 

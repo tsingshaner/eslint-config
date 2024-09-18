@@ -1,7 +1,8 @@
-import type { Linter } from 'eslint'
-import { includeIgnoreFile, convertIgnorePatternToMinimatch } from '@eslint/compat'
+import { convertIgnorePatternToMinimatch, includeIgnoreFile } from '@eslint/compat'
 
-export { includeIgnoreFile, convertIgnorePatternToMinimatch }
+import type { Linter } from 'eslint'
+
+export { convertIgnorePatternToMinimatch, includeIgnoreFile }
 
 /**
  * return a flat config with ignore patterns for eslint to ignore files
@@ -11,8 +12,8 @@ export { includeIgnoreFile, convertIgnorePatternToMinimatch }
  */
 export const defineGlobalIgnore = (patterns: string[], ignoreFileAbsolutePath?: string): Linter.Config => {
   const config = {
-    name: 'qingshaner/global-ignore',
-    ignores: patterns.map(convertIgnorePatternToMinimatch)
+    ignores: patterns.map(convertIgnorePatternToMinimatch),
+    name: 'qingshaner/base/ignores'
   }
 
   if (ignoreFileAbsolutePath !== undefined) {

@@ -1,5 +1,5 @@
 {
-  "include": ["../src", "../test"],
+  "include": ["../scripts/**/*.ts", "../eslint.config.ts", "../src", "../test", "./*.ts"],
   "compilerOptions": {
     "module": "esnext",
     "moduleResolution": "node",
@@ -14,10 +14,6 @@
     "forceConsistentCasingInFileNames": true,
     "skipLibCheck": true,
     "lib": ["esnext"],
-    "types": [],
-    "baseUrl": "..",
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "types": []
   }
 }

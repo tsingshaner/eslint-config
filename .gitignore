@@ -12,3 +12,6 @@ node_modules
 .vscode/**/*
 !.vscode/settings.json
 !.vscode/extensions.json
+
+src/configs/biome.ts
+src/*.rule.d.ts

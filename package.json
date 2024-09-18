@@ -16,41 +16,41 @@
     "registry": "https://registry.npmjs.org/"
   },
   "license": "MIT",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "pnpm tsup --config=config/tsup.config.ts",
-    "gen:biome": "node --experimental-strip-types ./scripts/ban-biome-impl-rules.ts",
     "changeset-version": "changeset version",
     "changeset-publish": "pnpm build && changeset publish",
     "format": "biome format . --write",
-    "lint": "biome lint . --write && eslint .",
+    "gen:biome": "tsx ./scripts/ban-biome-impl-rules.ts",
+    "gen:types": "tsx ./scripts/gen-rule-record-type.ts",
+    "inspector": "pnpx @eslint/config-inspector",
+    "lint": "biome lint . --write && eslint --flag unstable_ts_config . --fix",
     "prepare": "simple-git-hooks",
     "test": "vitest run -c config/vitest.config.ts",
     "test:cov": "vitest run --coverage -c config/vitest.config.ts",
     "test:dev": "vitest -c config/vitest.config.ts"
   },
   "devDependencies": {
-    "@biomejs/biome": "^1.9.0",
+    "@antfu/eslint-config": "^3.6.2",
+    "@biomejs/biome": "^1.9.1",
     "@changesets/cli": "^2.27.8",
     "@eslint/js": "^9.10.0",
+    "@types/eslint__js": "^8.42.3",
     "@types/node": "^22.5.5",
     "@vitest/coverage-v8": "^2.1.1",
     "eslint": "^9.10.0",
     "eslint-typegen": "^0.3.2",
-    "globals": "^15.9.0",
+    "jiti": "^1.21.6",
     "lint-staged": "^15.2.10",
     "simple-git-hooks": "^2.11.1",
-    "tsup": "^8.2.4",
+    "tsup": "^8.3.0",
+    "tsx": "^4.19.1",
     "typescript": "^5.6.2",
     "vitest": "^2.1.1"
   },
   "lint-staged": {
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
-      "pnpm biome lint --write",
-      "pnpm eslint --cache --fix"
-    ],
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["pnpm lint"],
     "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
   },
   "simple-git-hooks": {
@@ -58,9 +58,9 @@
     "pre-push": "pnpm test"
   },
   "dependencies": {
-    "@antfu/eslint-config": "^3.6.2",
     "@eslint/compat": "^1.1.1",
     "eslint-plugin-perfectionist": "^3.6.0",
-    "typescript-eslint": "^8.5.0"
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.6.0"
   }
 }

@@ -1,6 +1,5 @@
+import { GLOB_TS, GLOB_TSX } from '@antfu/eslint-config'
 import { config, configs } from 'typescript-eslint'
-
-import { GLOB_TS, GLOB_TSX } from '../constants/glob'
 
 import type { TypeScriptRuleOptions } from '../typescript.rule'
 
@@ -47,16 +46,9 @@ export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
  * @param tsconfigRootDir root dir for tsconfig.json
  * @param overrides overrides for rules
  */
-export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): ConfigArray =>
-  config(
-    ...defineTypeScriptConfig(['recommendedTypeChecked', 'stylisticTypeChecked'], {
-      rules: {
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-        ...overrides?.rules
-      }
-    }),
+export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): ConfigArray => {
+  return config(
     {
-      files: [GLOB_TS, GLOB_TSX],
       languageOptions: {
         parserOptions: {
           projectService: true,
@@ -64,5 +56,15 @@ export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverri
         }
       },
       name: 'qingshaner/typescript/type-checked'
-    }
-  )
+    },
+    ...defineTypeScriptConfig(['recommendedTypeChecked', 'stylisticTypeChecked'], {
+      rules: {
+        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+        ...overrides?.rules
+      }
+    })
+  ).map((c) => {
+    c.files = [GLOB_TS, GLOB_TSX]
+    return c
+  })
+}

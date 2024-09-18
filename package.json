@@ -1,22 +1,25 @@
 {
-  "name": "template",
+  "name": "@qingshaner/eslint-config",
+  "type": "module",
   "version": "0.0.0",
   "description": "a lib template for typescript",
-  "engines": {
-    "node": ">=22.8.0",
-    "pnpm": ">=9.0.0"
-  },
-  "type": "module",
   "author": {
     "name": "qingshaner",
     "url": "https://github.com/Jon-a-than"
+  },
+  "license": "MIT",
+  "files": [
+    "biome.json",
+    "dist"
+  ],
+  "engines": {
+    "node": ">=22.8.0",
+    "pnpm": ">=9.0.0"
   },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/"
   },
-  "license": "MIT",
-  "files": ["dist"],
   "scripts": {
     "build": "pnpm tsup --config=config/tsup.config.ts",
     "changeset-version": "changeset version",
@@ -32,8 +35,15 @@
     "test:cov": "vitest run --coverage -c config/vitest.config.ts",
     "test:dev": "vitest -c config/vitest.config.ts"
   },
-  "devDependencies": {
+  "dependencies": {
     "@antfu/eslint-config": "^3.6.2",
+    "@eslint/compat": "^1.1.1",
+    "eslint-plugin-perfectionist": "^3.6.0",
+    "eslint-plugin-vue": "^9.28.0",
+    "globals": "^15.9.0",
+    "typescript-eslint": "^8.6.0"
+  },
+  "devDependencies": {
     "@biomejs/biome": "^1.9.1",
     "@changesets/cli": "^2.27.8",
     "@eslint/js": "^9.10.0",
@@ -41,6 +51,7 @@
     "@types/node": "^22.5.5",
     "@vitest/coverage-v8": "^2.1.1",
     "eslint": "^9.10.0",
+    "eslint-plugin-format": "^0.1.2",
     "eslint-typegen": "^0.3.2",
     "jiti": "^1.21.6",
     "lint-staged": "^15.2.10",
@@ -50,18 +61,14 @@
     "typescript": "^5.6.2",
     "vitest": "^2.1.1"
   },
-  "lint-staged": {
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": ["pnpm lint"],
-    "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
-  },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",
     "pre-push": "pnpm test"
   },
-  "dependencies": {
-    "@eslint/compat": "^1.1.1",
-    "eslint-plugin-perfectionist": "^3.6.0",
-    "globals": "^15.9.0",
-    "typescript-eslint": "^8.6.0"
+  "lint-staged": {
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
+      "pnpm lint"
+    ],
+    "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
   }
 }

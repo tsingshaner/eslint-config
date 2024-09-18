@@ -7,7 +7,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import type { Linter } from 'eslint'
 
-import { javascript, perfectionist, typescript } from '../src/configs'
+import { perfectionist, typescript } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]

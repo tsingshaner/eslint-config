@@ -68,7 +68,7 @@ const parseBannedRules = (tables: string[][]): string[] => {
   const plugin = implementedPlugins.find((plugin) => plugin[0] === name)
   if (!plugin) {
     if (ignoredPlugins.includes(name)) {
-      console.log(`Ignored plugin: ${name}`)
+      console.info(`Ignored plugin: ${name}`)
       return []
     }
 
@@ -113,6 +113,6 @@ export const banBiomeRepetitiveConfig = (): Linter.Config => {
   return ${JSON.stringify(config, null, 2)}
 }
 `
-  console.log(code)
+  console.info(code)
   return writeFile(fileURLToPath(new URL('../src/configs/biome.ts', import.meta.url)), code)
 }

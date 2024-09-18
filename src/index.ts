@@ -7,4 +7,6 @@ export type * from './javascript.rule'
 export type * from './perfectionist.rule'
 export type * from './typescript.rule'
 
-export const defineESLintConfig = (configs: (ConfigWithExtends | Linter.Config)[]) => configs
+export const defineESLintConfig = async (
+  configs: (() => Promise<(ConfigWithExtends | Linter.Config)[]>) | (ConfigWithExtends | Linter.Config)[]
+) => (configs instanceof Function ? configs() : configs)

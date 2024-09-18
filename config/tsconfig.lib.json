@@ -1,19 +1,21 @@
 {
-  "include": ["../scripts/**/*.ts", "../eslint.config.ts", "../src", "../test", "./*.ts"],
   "compilerOptions": {
+    "target": "es2023",
+    "lib": ["esnext"],
+    "useDefineForClassFields": true,
+    "rootDir": "..",
     "module": "esnext",
     "moduleResolution": "node",
-    "rootDir": "..",
     "resolveJsonModule": true,
-    "noImplicitThis": true,
+    "types": [],
     "strict": true,
-    "verbatimModuleSyntax": true,
-    "target": "es2023",
-    "useDefineForClassFields": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
-    "skipLibCheck": true,
-    "lib": ["esnext"],
-    "types": []
-  }
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": ["../scripts/**/*.ts", "../eslint.config.ts", "../src", "../test", "./*.ts"]
 }

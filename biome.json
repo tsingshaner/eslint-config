@@ -1,5 +1,18 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+  "overrides": [
+    {
+      "include": ["*.svelte", "*.astro", "*.vue"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useConst": "off",
+            "useImportType": "off"
+          }
+        }
+      }
+    }
+  ],
   "organizeImports": {
     "enabled": true
   },
@@ -26,7 +39,27 @@
   "linter": {
     "enabled": true,
     "rules": {
-      "recommended": true
+      "complexity": {
+        "noExcessiveCognitiveComplexity": {
+          "level": "error",
+          "options": {
+            "maxAllowedComplexity": 8
+          }
+        },
+        "useSimplifiedLogicExpression": "warn"
+      },
+      "recommended": true,
+      "suspicious": {
+        "noConsoleLog": "warn",
+        "noMisplacedAssertion": "warn"
+      },
+      "style": {
+        "useBlockStatements": "warn"
+      },
+      "nursery": {
+        "useSortedClasses": "warn",
+        "useAriaPropsSupportedByRole": "error"
+      }
     }
   },
   "vcs": {

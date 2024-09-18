@@ -20,8 +20,9 @@
   "scripts": {
     "build": "pnpm tsup --config=config/tsup.config.ts",
     "changeset-version": "changeset version",
-    "changeset-publish": "pnpm build && changeset publish",
+    "changeset-publish": "pnpm gen && pnpm build && changeset publish",
     "format": "biome format . --write",
+    "gen": "pnpm gen:biome && pnpm gen:types",
     "gen:biome": "tsx ./scripts/ban-biome-impl-rules.ts",
     "gen:types": "tsx ./scripts/gen-rule-record-type.ts",
     "inspector": "pnpx @eslint/config-inspector",

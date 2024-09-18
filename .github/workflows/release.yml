@@ -17,22 +17,29 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20]
+        node-version: [22]
 
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v3
         with:
           version: 9
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'pnpm'
+
       - name: Install dependencies
         run: pnpm i
+
+      - name: Gen code
+        run: pnpm gen
+
       - name: Unit Test
         run: pnpm test
+
       - name: Create Release Pull Request
         uses: changesets/action@v1
         with:

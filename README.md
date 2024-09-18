@@ -1,12 +1,6 @@
-# TypeScript 库开发模板
+# ESLint Config
 
-## 初始化 changesets
+## Features
 
-```bash
-pnpm changeset init
-```
-
-## CodeCov 配置
-
-添加 `CODECOV_TOKEN` 环境变量，值为 CodeCov 项目的 token。
-
+- 剔除 `biomejs` 重复规则
+- `ESLint` 规则类型

@@ -48,10 +48,17 @@
         "noExcessiveCognitiveComplexity": {
           "level": "error",
           "options": {
-            "maxAllowedComplexity": 10
+            "maxAllowedComplexity": 15
           }
         },
         "useSimplifiedLogicExpression": "warn"
+      },
+      "correctness": {
+        "noUnusedImports": "warn",
+        "noUnusedPrivateClassMembers": "warn",
+        "noUnusedVariables": "warn",
+        "noUnusedLabels": "warn",
+        "noUnusedFunctionParameters": "info"
       },
       "recommended": true,
       "suspicious": {

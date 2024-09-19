@@ -10,12 +10,14 @@ export type { JSONCConfig, JSONCConfigCollection, JSONCConfigOverrideOptions } f
 export { definePerfectionistConfig, perfectionist } from './perfectionist'
 export type { PerfectionistConfig, PerfectionistConfigCollection, PerfectionistOverrideOptions } from './perfectionist'
 
+export { definePrettierConfig, prettier } from './prettier'
+export type { PrettierConfig, PrettierEnabledFiles } from './prettier'
+
 export { defineTypeScriptConfig, typescript } from './typescript'
 export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './typescript'
 
 export { unocss, vue } from '@antfu/eslint-config'
-
-import { formatters, ignores, vue } from '@antfu/eslint-config'
+import { vue } from '@antfu/eslint-config'
 
 import type { Linter } from 'eslint'
 
@@ -24,49 +26,35 @@ import { defineGlobalIgnore } from './ignore'
 import { javascript } from './javascript'
 import { jsonc, type JSONCConfigOverrideOptions } from './jsonc'
 import { perfectionist, type PerfectionistOverrideOptions } from './perfectionist'
+import { prettier } from './prettier'
 import { typescript, type TypeScriptOverrideOptions } from './typescript'
-export async function formatter() {
-  return [
-    await formatters({
-      html: 'prettier',
-      markdown: 'prettier',
-      prettierOptions: {
-        printWidth: 100,
-        semi: false,
-        singleQuote: true,
-        trailingComma: 'none'
-      },
-      slidev: false,
-      svg: false,
-      xml: false
-    })
-  ].flat() as Linter.Config[]
-}
+
+import type { VendoredPrettierOptionsRequired } from '../prettier-rule'
 
 export interface QingshanerESLintOptions {
   extra?: Linter.Config[]
-  formatter?: boolean
   ignores: Parameters<typeof defineGlobalIgnore>
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
+  prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
   typescript?: [tsconfigRootDir: string, options?: TypeScriptOverrideOptions] | false
   useBiome?: boolean
   vue?: boolean
 }
 export const qingshanerESLintConfig = async ({
   extra = [],
-  formatter: useFormatter = false,
   ignores,
   jsonc: useJSONC = false,
   perfectionist: usePerfectionist = false,
+  prettier: usePrettier = false,
   typescript: useTypescrit = false,
   useBiome = false,
   vue: useVue = false
 }: QingshanerESLintOptions): Promise<Linter.Config[]> => {
   const configs: Linter.Config[] = [defineGlobalIgnore(...ignores), javascript()]
 
-  if (useFormatter) {
-    configs.push(...(await formatter()))
+  if (usePrettier) {
+    configs.push(...prettier(usePrettier === true ? undefined : usePrettier))
   }
 
   if (useJSONC) {

@@ -10,11 +10,13 @@
   "license": "MIT",
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
   },
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "biome.json",
     "dist"
@@ -47,6 +49,7 @@
     "@eslint/compat": "^1.1.1",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-perfectionist": "^3.6.0",
+    "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-vue": "^9.28.0",
     "globals": "^15.9.0",
     "typescript-eslint": "^8.6.0"
@@ -59,7 +62,6 @@
     "@types/node": "^22.5.5",
     "@vitest/coverage-v8": "^2.1.1",
     "eslint": "^9.10.0",
-    "eslint-plugin-format": "^0.1.2",
     "eslint-typegen": "^0.3.2",
     "jiti": "^1.21.6",
     "lint-staged": "^15.2.10",

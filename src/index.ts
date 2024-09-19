@@ -6,6 +6,7 @@ export * from './configs'
 export type * from './javascript.rule'
 export type * from './jsonc.rule'
 export type * from './perfectionist.rule'
+export type * from './prettier-rule'
 export type * from './typescript.rule'
 
 export const defineESLintConfig = async (

@@ -30,16 +30,21 @@ export const defineJSONCConfig = <T extends JSONCConfigCollection>(
     Object.assign(rules, jsoncPlugin.configs[collection].at(-1)?.rules)
   }
 
-  return [
-    ...(jsoncPlugin.configs['flat/base'] as JSONCConfig[]),
-    {
-      name: 'qingshaner/jsonc',
-      rules: {
-        ...rules,
-        ...overrides?.rules
-      }
+  const configs = jsoncPlugin.configs['flat/base'] as JSONCConfig[]
+  if (configs[0]) {
+    configs[0].name = 'qingshaner/jsonc'
+  }
+
+  if (configs[1]) {
+    configs[1].name = 'qingshaner/jsonc/rules'
+    configs[1].rules = {
+      ...configs[1].rules,
+      ...rules,
+      ...overrides?.rules
     }
-  ]
+  }
+
+  return configs
 }
 
 export const jsonc = (overrides?: JSONCConfigOverrideOptions): JSONCConfig[] => {

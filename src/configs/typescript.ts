@@ -1,11 +1,16 @@
-import { GLOB_TS, GLOB_TSX } from '@antfu/eslint-config'
+import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '@antfu/eslint-config'
 import { config, configs } from 'typescript-eslint'
+
+import type { Linter } from 'eslint'
 
 import type { TypeScriptRuleOptions } from '../typescript.rule'
 
 type ConfigArray = (typeof configs)['recommendedTypeChecked']
+// @ts-expect-error is valid
+export type TypeScriptConfig = Linter.Config<TypeScriptRuleOptions>
 export type TypeScriptConfigCollection = keyof typeof configs
 export interface TypeScriptOverrideOptions {
+  languageOptions?: ConfigArray[0]['languageOptions']
   rules?: TypeScriptRuleOptions
 }
 
@@ -18,7 +23,7 @@ export interface TypeScriptOverrideOptions {
 export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
   collection: T | T[],
   overrides?: TypeScriptOverrideOptions
-): ConfigArray => {
+): TypeScriptConfig[] => {
   const conf = Array.isArray(collection) ? collection.map((c) => configs[c]).flat(2) : configs[collection]
 
   const confArray = (Array.isArray(conf) ? conf : ([conf] as ConfigArray)).reduce<ConfigArray>((acc, c) => {
@@ -34,11 +39,12 @@ export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
   }, [])
 
   return config(...confArray, {
+    languageOptions: overrides?.languageOptions,
     name: 'qingshaner/typescript',
     rules: {
       ...overrides?.rules
     }
-  })
+  }) as TypeScriptConfig[]
 }
 
 /**
@@ -46,25 +52,23 @@ export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
  * @param tsconfigRootDir root dir for tsconfig.json
  * @param overrides overrides for rules
  */
-export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): ConfigArray => {
-  return config(
-    {
-      languageOptions: {
-        parserOptions: {
-          projectService: true,
-          tsconfigRootDir
-        }
-      },
-      name: 'qingshaner/typescript/type-checked'
-    },
-    ...defineTypeScriptConfig(['recommendedTypeChecked', 'stylisticTypeChecked'], {
-      rules: {
-        '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
-        ...overrides?.rules
+export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): TypeScriptConfig[] => {
+  return defineTypeScriptConfig(['base'], {
+    languageOptions: {
+      parserOptions: {
+        extraFileExtensions: ['.vue'],
+        projectService: true,
+        tsconfigRootDir
       }
-    })
-  ).map((c) => {
-    c.files = [GLOB_TS, GLOB_TSX]
+    },
+    rules: {
+      ...configs.recommendedTypeChecked.at(-1)?.rules,
+      ...configs.stylisticTypeChecked.at(-1)?.rules,
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
+      ...overrides?.rules
+    }
+  }).map((c) => {
+    c.files = [GLOB_TS, GLOB_TSX, GLOB_VUE]
     return c
   })
 }

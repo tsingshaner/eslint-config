@@ -8,6 +8,9 @@ import type { JavaScriptRuleOptions } from '../javascript.rule'
 // @ts-expect-error is valid
 export type JavaScriptConfig = Linter.Config<JavaScriptRuleOptions>
 export type JavaScriptConfigCollection = keyof typeof eslint.configs
+export interface JavaScriptOverrideOptions {
+  rules?: JavaScriptRuleOptions
+}
 
 export const javascript = (): JavaScriptConfig => {
   return defineJavaScriptConfig('recommended')
@@ -15,13 +18,14 @@ export const javascript = (): JavaScriptConfig => {
 
 export const defineJavaScriptConfig = <T extends JavaScriptConfigCollection>(
   collection: T,
-  overrides?: { rules?: JavaScriptRuleOptions }
+  overrides?: JavaScriptOverrideOptions
 ): JavaScriptConfig => {
   const config = eslint.configs[collection]
 
   return {
     languageOptions: {
       globals: {
+        ...globals.builtin,
         ...globals.browser,
         ...globals.es2025,
         ...globals.node,

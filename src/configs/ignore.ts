@@ -2,8 +2,6 @@ import { convertIgnorePatternToMinimatch, includeIgnoreFile } from '@eslint/comp
 
 import type { Linter } from 'eslint'
 
-export { convertIgnorePatternToMinimatch, includeIgnoreFile }
-
 /**
  * return a flat config with ignore patterns for eslint to ignore files
  * @param patterns ignore patterns

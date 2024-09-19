@@ -27,38 +27,53 @@ export const definePerfectionistConfig = <T extends PerfectionistConfigCollectio
   }
 }
 
-export const perfectionist = (overrides?: PerfectionistOverrideOptions): PerfectionistConfig => {
-  return definePerfectionistConfig('recommended-alphabetical', {
-    rules: {
-      'perfectionist/sort-imports': [
-        'warn',
-        {
-          customGroups: {
-            type: {},
-            value: {
-              component: ['@/*.vue', '*.vue']
-            }
-          },
-          groups: [
-            'builtin',
-            'external',
-            'type',
-            'internal',
-            'internal-type',
-            ['parent', 'sibling', 'index', 'object'],
-            'component',
-            ['parent-type', 'sibling-type', 'index-type'],
-            ['style', 'side-effect-style'],
-            'unknown'
-          ],
-          ignoreCase: true,
-          internalPattern: ['@/**', '~/**'],
-          newlinesBetween: 'always'
-        }
-      ],
-      'perfectionist/sort-interfaces': 'warn',
-      'perfectionist/sort-objects': 'warn',
-      ...overrides?.rules
+const setWarn = (rules: Required<PerfectionistConfig>['rules']): PerfectionistConfig['rules'] => {
+  for (const rule of Reflect.ownKeys(rules)) {
+    const key = rule as keyof Required<PerfectionistRuleOptions>
+
+    if (typeof rules[key] === 'string') {
+      ;(rules[key] as string) = 'warn'
+    } else if (Array.isArray(rules[key])) {
+      rules[key][0] = 'warn'
     }
-  })
+  }
+
+  return rules
+}
+
+export const perfectionist = (overrides?: PerfectionistOverrideOptions): PerfectionistConfig => {
+  const config = definePerfectionistConfig('recommended-alphabetical')
+
+  config.rules = {
+    ...setWarn(config.rules ?? {}),
+    'perfectionist/sort-imports': [
+      'warn',
+      {
+        customGroups: {
+          type: {},
+          value: {
+            component: ['@/*.vue', '*.vue']
+          }
+        },
+        groups: [
+          'builtin',
+          'external',
+          'type',
+          'internal',
+          'internal-type',
+          ['parent', 'sibling', 'index', 'object'],
+          'component',
+          ['parent-type', 'sibling-type', 'index-type'],
+          ['style', 'side-effect-style'],
+          'unknown'
+        ],
+        ignoreCase: true,
+        internalPattern: ['@/**', '~/**'],
+        newlinesBetween: 'always'
+      }
+    ],
+    ...overrides?.rules
+  }
+
+  return config
 }

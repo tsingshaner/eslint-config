@@ -1,7 +1,9 @@
-import { GLOB_HTML, GLOB_MARKDOWN, GLOB_VUE, parserPlain } from '@antfu/eslint-config'
 import prettierPlugin from 'eslint-plugin-prettier'
 
 import type { Linter } from 'eslint'
+
+import { GLOB_HTML } from '../globs'
+import { parserPlain } from '../parser-plain'
 
 import type { PrettierOptions, PrettierRuleOptions, VendoredPrettierOptionsRequired } from '../prettier-rule'
 
@@ -13,8 +15,6 @@ export interface PrettierEnabledFiles {
    * @example ['*.html']
    */
   files: string[]
-  /** name of the category */
-  name: string
   /** perttier parser */
   parser: PrettierOptions['parser']
 }
@@ -57,7 +57,7 @@ export const definePrettierConfig = (
         'prettier/prettier': 'off'
       }
     },
-    ...enabledFiles.map<PrettierConfig>(({ files, name, parser }) => {
+    ...enabledFiles.map<PrettierConfig>(({ files, parser }) => {
       // @ts-expect-error ensure close eslint rules
       // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
       basic.rules['prettier/prettier'][1].parser = parser
@@ -65,7 +65,7 @@ export const definePrettierConfig = (
       return {
         ...basic,
         files,
-        name
+        name: `qingshaner/prettier/${parser}`
       }
     })
   ]
@@ -75,19 +75,8 @@ export const prettier = (prettierConfig?: Partial<VendoredPrettierOptionsRequire
   return definePrettierConfig(
     [
       {
-        files: [GLOB_VUE],
-        name: 'qingshaner/prettier/vue',
-        parser: 'vue'
-      },
-      {
         files: [GLOB_HTML],
-        name: 'qingshaner/prettier/html',
         parser: 'html'
-      },
-      {
-        files: [GLOB_MARKDOWN],
-        name: 'qingshaner/prettier/markdown',
-        parser: 'markdown'
       }
     ],
     {

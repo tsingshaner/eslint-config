@@ -1,7 +1,8 @@
-import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '@antfu/eslint-config'
 import { config, configs } from 'typescript-eslint'
 
 import type { Linter } from 'eslint'
+
+import { GLOB_TS, GLOB_TSX } from '../globs'
 
 import type { TypeScriptRuleOptions } from '../typescript.rule'
 
@@ -68,7 +69,7 @@ export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverri
       ...overrides?.rules
     }
   }).map((c) => {
-    c.files = [GLOB_TS, GLOB_TSX, GLOB_VUE]
+    c.files = [GLOB_TS, GLOB_TSX]
     return c
   })
 }

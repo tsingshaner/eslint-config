@@ -70,8 +70,30 @@
       },
       "nursery": {
         "useSortedClasses": "warn",
-        "useAriaPropsSupportedByRole": "error"
+        "useAriaPropsSupportedByRole": "error",
+        "useComponentExportOnlyModules": {
+          "level": "error",
+          "options": {
+            "allowConstantExport": true
+          }
+        }
       }
+    }
+  },
+  "css": {
+    "assists": {
+      "enabled": true
+    },
+    "formatter": {
+      "enabled": true,
+      "quoteStyle": "single"
+    },
+    "linter": {
+      "enabled": true
+    },
+    "parser": {
+      "allowWrongLineComments": true,
+      "cssModules": false
     }
   },
   "vcs": {

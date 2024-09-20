@@ -17,10 +17,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "biome.json",
-    "dist"
-  ],
+  "files": ["biome.json", "dist"],
   "engines": {
     "node": ">=22.8.0",
     "pnpm": ">=9.0.0"
@@ -45,7 +42,6 @@
     "test:dev": "vitest -c config/vitest.config.ts"
   },
   "dependencies": {
-    "@typescript-eslint/parser": "^8.6.0",
     "eslint-merge-processors": "^0.1.0",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-perfectionist": "^3.6.0",
@@ -80,9 +76,7 @@
     "pre-push": "pnpm test"
   },
   "lint-staged": {
-    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": [
-      "pnpm lint"
-    ],
+    "*.{vue,js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm lint",
     "*.{js,jsx,cjs,mjs,ts,tsx,cts,mts}": "pnpm biome format --write"
   }
 }

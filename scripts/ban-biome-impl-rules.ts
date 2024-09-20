@@ -18,6 +18,7 @@ const implementedPlugins = [
   ['eslint-plugin-n', 'n/'],
   ['eslint-plugin-react', 'react/'],
   ['eslint-plugin-react-hooks', 'react-hooks/'],
+  ['eslint-plugin-react-refresh', 'react-refresh/'],
   ['eslint-plugin-solid', 'solid/'],
   ['eslint-plugin-sonarjs', 'sonarjs/'],
   ['eslint-plugin-stylistic', 'stylistic/'],

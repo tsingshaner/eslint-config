@@ -7,7 +7,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import type { Linter } from 'eslint'
 
-import { jsonc, perfectionist, typescript } from '../src/configs'
+import { jsonc, perfectionist, typescript, vue } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]
@@ -18,26 +18,13 @@ interface RuleConfig {
 await main()
 async function main() {
   const ROOT_DIR = fileURLToPath(new URL('../src', import.meta.url))
-
   const ruleOptions: RuleConfig[] = [
     {
-      configs: [
-        {
-          plugins: {
-            '': {
-              rules: Object.fromEntries(builtinRules.entries())
-            }
-          }
-        }
-      ],
+      configs: [{ plugins: { '': { rules: Object.fromEntries(builtinRules.entries()) } } }],
       exportName: 'JavaScriptRuleOptions',
       outputFileName: resolve(ROOT_DIR, 'javascript.rule.d.ts')
     },
-    {
-      configs: jsonc(),
-      exportName: 'JSONCRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'jsonc.rule.d.ts')
-    },
+    { configs: jsonc(), exportName: 'JSONCRuleOptions', outputFileName: resolve(ROOT_DIR, 'jsonc.rule.d.ts') },
     {
       configs: typescript('tsconfigRootDir') as Linter.Config[],
       exportName: 'TypeScriptRuleOptions',
@@ -47,7 +34,8 @@ async function main() {
       configs: [perfectionist()],
       exportName: 'PerfectionistRuleOptions',
       outputFileName: resolve(ROOT_DIR, 'perfectionist.rule.d.ts')
-    }
+    },
+    { configs: vue(), exportName: 'VueRuleOptions', outputFileName: resolve(ROOT_DIR, 'vue.rule.d.ts') }
   ]
 
   const promises = ruleOptions.map(({ configs, exportName, outputFileName }) => {
@@ -66,6 +54,5 @@ async function extractRuleTypes(
     exportTypeName,
     includeAugmentation: false
   })
-
   return writeFile(output, dts)
 }

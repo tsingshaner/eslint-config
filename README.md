@@ -2,5 +2,14 @@
 
 ## Features
 
-- 剔除 `biomejs` 重复规则
-- `ESLint` 规则类型
+### Prettier
+
+Format code with `Prettier`, if the file can't be formatted by `Biome`, it will be formatted by `Prettier`.
+
+### Biome
+
+Disable `biomejs` has implemented rules
+
+### Vue
+
+For `Vue3` project.

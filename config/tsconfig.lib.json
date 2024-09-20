@@ -17,5 +17,12 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["../scripts/**/*.ts", "../eslint.config.ts", "../src", "../test", "./*.ts"]
+  "include": [
+    "../scripts/**/*.ts",
+    "../eslint.config.ts",
+    "../src",
+    "../test",
+    "./*.ts",
+    "../*.vue"
+  ]
 }

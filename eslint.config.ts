@@ -1,13 +1,14 @@
 import { resolve } from 'node:path'
 
-import { qingshanerESLintConfig } from './src'
+import { presetESLintConfig } from './src'
 
-export default qingshanerESLintConfig({
-  ignores: [['pnpm-lock.yaml', './test/fixtures/inout/**'], resolve(__dirname, '.gitignore')],
+export default presetESLintConfig({
+  a11y: true,
+  biome: true,
+  ignores: [resolve(__dirname, '.gitignore'), ['pnpm-lock.yaml', './test/fixtures/inout/**']],
   jsonc: true,
   perfectionist: true,
   prettier: true,
   typescript: [__dirname],
-  useBiome: true,
   vue: true
 })

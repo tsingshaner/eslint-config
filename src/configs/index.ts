@@ -16,6 +16,9 @@ export type { PerfectionistConfig, PerfectionistConfigCollection, PerfectionistO
 export { definePrettierConfig, prettier } from './prettier'
 export type { PrettierConfig, PrettierEnabledFiles } from './prettier'
 
+export { defineReactConfig, react } from './react'
+export type { ReactConfig, ReactOverrideOptions } from './react'
+
 export { defineTypeScriptConfig, typescript } from './typescript'
 export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './typescript'
 

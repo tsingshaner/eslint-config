@@ -68,7 +68,7 @@
         "useBlockStatements": "warn"
       },
       "nursery": {
-        "useSortedClasses": "warn",
+        "useSortedClasses": "error",
         "useAriaPropsSupportedByRole": "error",
         "useComponentExportOnlyModules": {
           "level": "error",

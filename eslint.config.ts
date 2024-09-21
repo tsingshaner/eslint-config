@@ -9,6 +9,7 @@ export default presetESLintConfig({
   jsonc: true,
   perfectionist: true,
   prettier: true,
+  react: true,
   typescript: [__dirname],
   vue: true
 })

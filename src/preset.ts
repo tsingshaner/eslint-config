@@ -3,21 +3,25 @@ import type { ConfigWithExtends } from 'typescript-eslint'
 
 import {
   a11y,
-  type A11yOverideOptions,
   banBiomeRepetitiveConfig,
   defineGlobalIgnore,
   javascript,
   jsonc,
-  type JSONCConfigOverrideOptions,
   perfectionist,
-  type PerfectionistOverrideOptions,
   prettier,
+  react,
   typescript,
-  type TypeScriptOverrideOptions,
-  vue,
-  type VueConfigOverrideOptions
+  vue
 } from './configs'
 
+import type {
+  A11yOverideOptions,
+  JSONCConfigOverrideOptions,
+  PerfectionistOverrideOptions,
+  ReactOverrideOptions,
+  TypeScriptOverrideOptions,
+  VueConfigOverrideOptions
+} from './configs'
 import type { VendoredPrettierOptionsRequired } from './prettier-rule'
 import type { MaybePromise } from './type-utils'
 
@@ -49,6 +53,7 @@ export interface PresetOptions {
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
+  react?: boolean | ReactOverrideOptions
   typescript?: [tsconfigDir: string, overrides?: TypeScriptOverrideOptions] | false
   vue?: boolean | VueConfigOverrideOptions
 }
@@ -60,6 +65,7 @@ export const presetESLintConfig = async ({
   jsonc: jsoncOpts,
   perfectionist: perfectionistOpts,
   prettier: prettierOpts,
+  react: reactOpts,
   typescript: typescriptOpts,
   vue: vueOpts
 }: PresetOptions) => {
@@ -71,6 +77,7 @@ export const presetESLintConfig = async ({
   configs.push(...(await applyConfig(prettier, prettierOpts)))
   // @ts-expect-error TODO: fix types error
   configs.push(...(await applyConfig(typescript, typescriptOpts)))
+  configs.push(...(await applyConfig(react, reactOpts)))
   configs.push(...(await applyConfig(vue, vueOpts)))
   configs.push(...extra)
 

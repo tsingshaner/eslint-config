@@ -1,7 +1,7 @@
 {
   "name": "@qingshaner/eslint-config",
   "type": "module",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "a lib template for typescript",
   "author": {
     "name": "qingshaner",
@@ -17,7 +17,10 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["biome.json", "dist"],
+  "files": [
+    "biome.json",
+    "dist"
+  ],
   "engines": {
     "node": ">=22.8.0",
     "pnpm": ">=9.0.0"

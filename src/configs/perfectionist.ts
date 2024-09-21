@@ -41,7 +41,7 @@ const setWarn = (rules: Required<PerfectionistConfig>['rules']): PerfectionistCo
   return rules
 }
 
-export const perfectionist = (overrides?: PerfectionistOverrideOptions): PerfectionistConfig => {
+export const perfectionist = (overrides?: PerfectionistOverrideOptions): PerfectionistConfig[] => {
   const config = definePerfectionistConfig('recommended-alphabetical')
 
   config.rules = {
@@ -75,5 +75,5 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
     ...overrides?.rules
   }
 
-  return config
+  return [config]
 }

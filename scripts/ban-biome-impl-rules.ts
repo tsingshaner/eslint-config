@@ -104,7 +104,7 @@ async function main() {
   }, {})
 
   const config = {
-    name: 'qingshaner/biome/banned',
+    name: 'qingshaner/disable/biome',
     rules
   }
 
@@ -114,6 +114,5 @@ export const banBiomeRepetitiveConfig = (): Linter.Config => {
   return ${JSON.stringify(config, null, 2)}
 }
 `
-  console.info(code)
   return writeFile(fileURLToPath(new URL('../src/configs/biome.ts', import.meta.url)), code)
 }

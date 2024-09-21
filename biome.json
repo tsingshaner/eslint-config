@@ -18,7 +18,6 @@
   },
   "formatter": {
     "useEditorconfig": true,
-    "indentStyle": "space",
     "lineWidth": 120
   },
   "javascript": {

@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "es2023",
+    "jsx": "react",
     "lib": ["esnext"],
     "useDefineForClassFields": true,
     "rootDir": "..",
@@ -23,6 +24,7 @@
     "../src",
     "../test",
     "./*.ts",
-    "../*.vue"
+    "../*.vue",
+    "../*.tsx"
   ]
 }

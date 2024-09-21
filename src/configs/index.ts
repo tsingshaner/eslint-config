@@ -1,3 +1,6 @@
+export { a11y, defineA11yRules } from './a11y'
+export type { A11yConfig, A11yOverideOptions } from './a11y'
+
 export { banBiomeRepetitiveConfig } from './biome'
 export { defineGlobalIgnore } from './ignore'
 

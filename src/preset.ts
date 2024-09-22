@@ -75,8 +75,7 @@ export const presetESLintConfig = async ({
   configs.push(...(await applyConfig(jsonc, jsoncOpts)))
   configs.push(...(await applyConfig(perfectionist, perfectionistOpts)))
   configs.push(...(await applyConfig(prettier, prettierOpts)))
-  // @ts-expect-error TODO: fix types error
-  configs.push(...(await applyConfig(typescript, typescriptOpts)))
+  configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))
   configs.push(...(await applyConfig(react, reactOpts)))
   configs.push(...(await applyConfig(vue, vueOpts)))
   configs.push(...extra)

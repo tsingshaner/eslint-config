@@ -1,7 +1,7 @@
 {
   "name": "@qingshaner/eslint-config",
   "type": "module",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "a lib template for typescript",
   "author": {
     "name": "qingshaner",

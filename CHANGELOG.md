@@ -1,5 +1,12 @@
 # @qingshaner/eslint-config
 
+## 0.3.1
+
+### Patch Changes
+
+- ea3308b: Fix typescript overrides error
+- ea3308b: React support settings option
+
 ## 0.3.0
 
 ### Minor Changes

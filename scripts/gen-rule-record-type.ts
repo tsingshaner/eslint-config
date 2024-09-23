@@ -7,7 +7,7 @@ import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import type { Linter } from 'eslint'
 
-import { a11y, jsonc, perfectionist, react, typescript, vue } from '../src/configs'
+import { a11y, jsonc, perfectionist, react, typescript, unocss, vue } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]
@@ -44,6 +44,11 @@ async function main() {
       configs: react(),
       exportName: 'ReactRuleOptions',
       outputFileName: resolve(ROOT_DIR, 'react.rule.d.ts')
+    },
+    {
+      configs: unocss(),
+      exportName: 'UnoCSSRuleOptions',
+      outputFileName: resolve(ROOT_DIR, 'unocss.rule.d.ts')
     },
     { configs: vue(), exportName: 'VueRuleOptions', outputFileName: resolve(ROOT_DIR, 'vue.rule.d.ts') }
   ]

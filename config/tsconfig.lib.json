@@ -20,11 +20,11 @@
   },
   "include": [
     "../scripts/**/*.ts",
-    "../eslint.config.ts",
     "../src",
     "../test",
     "./*.ts",
     "../*.vue",
-    "../*.tsx"
+    "../*.tsx",
+    "../*.ts"
   ]
 }

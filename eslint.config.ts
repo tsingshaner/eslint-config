@@ -11,5 +11,6 @@ export default presetESLintConfig({
   prettier: true,
   react: true,
   typescript: [__dirname],
+  unocss: true,
   vue: true
 })

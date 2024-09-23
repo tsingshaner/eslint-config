@@ -22,5 +22,8 @@ export type { ReactConfig, ReactOverrideOptions } from './react'
 export { defineTypeScriptConfig, typescript } from './typescript'
 export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './typescript'
 
+export { defeneUnoCSSConfig, unocss } from './unocss'
+export type { UnoCSSConfig, UnoCSSOverrideOptions } from './unocss'
+
 export { defineVueConfig, vue } from './vue'
 export type { VueConfig, VueConfigOverrideOptions } from './vue'

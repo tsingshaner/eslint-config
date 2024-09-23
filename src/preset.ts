@@ -11,6 +11,7 @@ import {
   prettier,
   react,
   typescript,
+  unocss,
   vue
 } from './configs'
 
@@ -20,6 +21,7 @@ import type {
   PerfectionistOverrideOptions,
   ReactOverrideOptions,
   TypeScriptOverrideOptions,
+  UnoCSSOverrideOptions,
   VueConfigOverrideOptions
 } from './configs'
 import type { VendoredPrettierOptionsRequired } from './prettier-rule'
@@ -47,14 +49,20 @@ const applyConfig = <
 
 export interface PresetOptions {
   a11y?: A11yOverideOptions | boolean
+  /** Disable biome impled rules */
   biome?: boolean
+  /** Extra custom eslint flat configs */
   extra?: ESLintConfig[]
+  /** Ignore check files */
   ignores: [ignoreAbsoluePath: string, overrides?: string[]]
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
   react?: boolean | ReactOverrideOptions
   typescript?: [tsconfigDir: string, overrides?: TypeScriptOverrideOptions] | false
+  /** Enable `@unocss/eslint-plugin` */
+  unocss?: boolean | UnoCSSOverrideOptions
+  /** Enable `eslint-plugin-vue` */
   vue?: boolean | VueConfigOverrideOptions
 }
 export const presetESLintConfig = async ({
@@ -67,6 +75,7 @@ export const presetESLintConfig = async ({
   prettier: prettierOpts,
   react: reactOpts,
   typescript: typescriptOpts,
+  unocss: unocssOpts,
   vue: vueOpts
 }: PresetOptions) => {
   const configs: ESLintConfig[] = [defineGlobalIgnore(ignores[1] ?? [], ignores[0]), javascript()]
@@ -78,6 +87,7 @@ export const presetESLintConfig = async ({
   configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))
   configs.push(...(await applyConfig(react, reactOpts)))
   configs.push(...(await applyConfig(vue, vueOpts)))
+  configs.push(...(await applyConfig(unocss, unocssOpts)))
   configs.push(...extra)
 
   return biome ? configs.concat(banBiomeRepetitiveConfig()) : configs

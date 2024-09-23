@@ -1,10 +1,8 @@
-# ![ESLint Logo](https://api.iconify.design/logos:eslint.svg) ESLint Config
+# ESLint Config
 
-A collection of ESLint configurations for different types of projects.
+A collection of ![ESLint Logo](https://api.iconify.design/logos:eslint.svg) ESLint configurations for different types of projects.
 
 To use this configuration, it's highly recommended to include <a target="_blank" href="https://biomejs.dev"><img alt="biome logo" src="https://api.iconify.design/devicon:biome.svg"/> Biome</a> as part of your linter tool for optimal results.
-
-
 
 <p align="center">
 <a href="https://www.npmjs.com/@qingshaner/eslint-config" target="_blank"><img src="https://img.shields.io/npm/v/@qingshaner/eslint-config" alt="NPM Version" /></a>
@@ -16,9 +14,10 @@ To use this configuration, it's highly recommended to include <a target="_blank"
 
 ### A11y
 
-Plugin includes
-- `eslint-plugin-jsx-a11y`
-- `eslint-plugin-vuejs-accessibility`
+Include plugins
+
+- [`eslint-plugin-jsx-a11y`](https://www.npmjs.com/package/eslint-plugin-jsx-a11y)
+- [`eslint-plugin-vuejs-accessibility`](https://www.npmjs.com/package/eslint-plugin-vuejs-accessibility)
 
 ### Biome
 
@@ -30,42 +29,58 @@ JavaScript, TypeScript, CSS is formatted by Biome.
 
 ### JSON or JSONC
 
-`eslint-plugin-jsonc` is included.
-
 `antfu/sort/package-json` is used to sort `package.json`.
 `antfu/sort/tsonfig-json` is used to sort `*.tsconfig.json`.
 
-### Perfectionist
+Include plugins
 
-`eslint-plugin-perfectionist` is included.
+- [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)
+
+
+### Perfectionist
 
 Sort import statements, sort object properties.
 
+Include plugins
+
+- [`eslint-plugin-perfectionist`](https://www.npmjs.com/package/eslint-plugin-perfectionist)
+
 ### Prettier
-
-Plugin includes
-
-`eslint-plugin-prettier`
 
 Format code with `Prettier`, if the file can't be formatted by `Biome`, it will be formatted by `Prettier`.
 
-### React
+Incude plugins
 
-`eslint-plugin-react` is included.
+- [`eslint-plugin-prettier`](https://www.npmjs.com/package/eslint-plugin-prettier)
+
+### React
 
 For `React` project.
 
+Include plugins
+
+- [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)
+
 ### TypeScript
-
-Plugin includes
-
-`@typescript-eslint/eslint-plugin`
-`@typescript-eslint/parser`
 
 For `TypeScript` project.
 
+Include plugins
+
+- [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)
+
+### UnoCSS
+
+Include plugins
+
+- [`@unocss/eslint-plugin`](https://www.npmjs.com/package/@unocss/eslint-config)
+
 ### Vue
 
-`eslint-plugin-vue` is included.
-
 For `Vue2` | `Vue3` project.
+
+Include plugins
+
+- [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)
+- [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)
+- [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)

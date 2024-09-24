@@ -10,7 +10,40 @@ To use this configuration, it's highly recommended to include <a target="_blank"
 <a href="https://biomejs.dev" target="_blank"><img alt="Static Badge" src="https://img.shields.io/badge/Formatted_with-Biome-60a5fa?style=flat&logo=biome"></a>
 </p>
 
-## 🧩 Plugins
+## 📦 Installation
+
+```bash
+npm install --save-dev @qingshaner/eslint-config
+```
+
+## 🚀 Usage
+
+`// eslint.config.mjs`
+```js
+import { resolve } from 'node:path'
+
+import { presetESLintConfig } from '@qingshaner/eslint-config'
+
+const ROOT = import.meta.dirname // this require Node.js 20+
+
+// Node.js < 20
+// const ROOT = new URL('.', import.meta.url).pathname
+
+export default presetESLintConfig({
+  a11y: true,
+  biome: true,
+  ignores: [resolve(ROOT, '.gitignore')],
+  jsonc: true,
+  perfectionist: true,
+  prettier: true,
+  typescript: [ROOT],
+  vue: true
+})
+
+```
+
+
+## 🧩 Builtin Plugins
 
 ### A11y
 
@@ -84,3 +117,6 @@ Include plugins
 - [`eslint-plugin-vue`](https://www.npmjs.com/package/eslint-plugin-vue)
 - [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)
 - [`vue-eslint-parser`](https://www.npmjs.com/package/vue-eslint-parser)
+
+## 📄 License
+MIT License © 2023-Present qingshaner

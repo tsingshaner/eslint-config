@@ -41,6 +41,7 @@ jobs:
         run: pnpm test
 
       - name: Create Release Pull Request
+        id: changesets
         uses: changesets/action@v1
         with:
           commit: 'chore(release): update release & CHANGELOG.md'
@@ -50,3 +51,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: CNPM sync the latest published package
+        if: steps.changesets.outputs.published == 'true'
+        run: |
+          NPM_PACKAGE_NAME=$(echo '${{ steps.changesets.outputs.publishedPackages }}' | jq -r '.[0].name')
+          echo "Syncing CNPM $NPM_PACKAGE_NAME"
+          curl -X PUT "https://registry.npmmirror.com/${NPM_PACKAGE_NAME}/sync?publish=true&nodeps=false"

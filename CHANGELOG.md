@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.4.1
+
+### Patch Changes
+
+- 9d5a16e: Exports desclare biome config
+
 ## 0.4.0
 
 ### Minor Changes

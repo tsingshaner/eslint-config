@@ -15,7 +15,10 @@
   "bugs": {
     "url": "https://github.com/tsingshaner/eslint-config"
   },
-  "keywords": ["eslint", "eslint-config"],
+  "keywords": [
+    "eslint",
+    "eslint-config"
+  ],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -26,7 +29,10 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": ["biome.json", "dist"],
+  "files": [
+    "biome.json",
+    "dist"
+  ],
   "engines": {
     "node": ">=22.8.0",
     "pnpm": ">=9.0.0"
@@ -59,19 +65,19 @@
     }
   },
   "dependencies": {
-    "@eslint/js": "^9.11.0",
+    "@eslint/js": "^9.11.1",
     "@unocss/eslint-plugin": "^0.62.4",
     "eslint-merge-processors": "^0.1.0",
     "eslint-plugin-jsonc": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.10.0",
-    "eslint-plugin-perfectionist": "^3.6.0",
+    "eslint-plugin-perfectionist": "^3.7.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.36.1",
     "eslint-plugin-vue": "^9.28.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-processor-vue-blocks": "^0.1.2",
     "globals": "^15.9.0",
-    "typescript-eslint": "^8.6.0",
+    "typescript-eslint": "^8.7.0",
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
@@ -79,8 +85,8 @@
     "@changesets/cli": "^2.27.8",
     "@eslint/compat": "^1.1.1",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^22.5.5",
-    "@types/react": "^18.3.8",
+    "@types/node": "^22.7.2",
+    "@types/react": "^18.3.9",
     "@vitest/coverage-v8": "^2.1.1",
     "eslint-typegen": "^0.3.2",
     "jiti": "^1.21.6",
@@ -92,7 +98,7 @@
     "typescript": "^5.6.2",
     "unocss": "^0.62.4",
     "vitest": "^2.1.1",
-    "vue": "^3.5.8"
+    "vue": "^3.5.9"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

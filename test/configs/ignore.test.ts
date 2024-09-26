@@ -27,6 +27,7 @@ describe('test ignores config', (test) => {
         "**/.eslintcache",
         ".changeset/README.md",
         "**/*.tsbuildinfo",
+        "**/_fixtures",
         "**/.idea",
         ".vscode/**/*",
         "!.vscode/settings.json",

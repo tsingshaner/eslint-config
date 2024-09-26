@@ -16,6 +16,9 @@
   "organizeImports": {
     "enabled": true
   },
+  "files": {
+    "ignoreUnknown": true
+  },
   "formatter": {
     "useEditorconfig": true,
     "lineWidth": 120
@@ -33,12 +36,11 @@
   "json": {
     "formatter": {
       "enabled": true,
-      "indentWidth": 2,
       "trailingCommas": "none",
-      "indentStyle": "space",
-      "lineEnding": "lf",
       "lineWidth": 100
-    }
+    },
+    "parser": { "allowComments": true },
+    "linter": { "enabled": true }
   },
   "linter": {
     "enabled": true,
@@ -102,13 +104,11 @@
           "options": {
             "conventions": [
               {
-                "selector": {
-                  "kind": "const",
-                  "scope": "global"
-                },
-                "formats": ["CONSTANT_CASE", "PascalCase"]
+                "selector": { "kind": "const" },
+                "formats": ["camelCase", "CONSTANT_CASE", "PascalCase"]
               }
             ],
+            "strictCase": false,
             "enumMemberCase": "PascalCase",
             "requireAscii": true
           }

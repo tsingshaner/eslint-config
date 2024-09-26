@@ -5,7 +5,7 @@ import { presetESLintConfig } from './src'
 export default presetESLintConfig({
   a11y: true,
   biome: true,
-  ignores: [resolve(__dirname, '.gitignore'), ['pnpm-lock.yaml', 'test/fixtures/input/**']],
+  ignores: [resolve(__dirname, '.gitignore'), ['pnpm-lock.yaml', 'fixtures/source/**/*']],
   jsonc: true,
   perfectionist: true,
   prettier: true,

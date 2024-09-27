@@ -25,4 +25,4 @@ export const defeneUnoCSSConfig = ({ files, rules }: UnoCSSOverrideOptions = {})
   ]
 }
 
-export const unocss = (overrides?: UnoCSSOverrideOptions) => defeneUnoCSSConfig(overrides)
+export const unocss = (overrides?: UnoCSSOverrideOptions): UnoCSSConfig[] => defeneUnoCSSConfig(overrides)

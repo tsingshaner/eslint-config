@@ -17,6 +17,7 @@ export const parserPlain = {
     scopeManager: null,
     services: { isPlain: true },
     visitorKeys: {
+      // biome-ignore lint/style/useNamingConvention: ignore this
       Program: []
     }
   })

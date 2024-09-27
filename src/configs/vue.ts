@@ -102,7 +102,7 @@ export const defineVueConfig = ({ rules: ruleOverrides, version = 3 }: VueConfig
   ]
 }
 
-export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}) => {
+export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}): VueConfig[] => {
   return defineVueConfig({
     rules: {
       'vue/array-bracket-spacing': ['error', 'never'],

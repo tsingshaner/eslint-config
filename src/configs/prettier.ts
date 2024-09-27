@@ -71,7 +71,7 @@ export const definePrettierConfig = (
   ]
 }
 
-export const prettier = (prettierConfig?: Partial<VendoredPrettierOptionsRequired>) => {
+export const prettier = (prettierConfig?: Partial<VendoredPrettierOptionsRequired>): PrettierConfig[] => {
   return definePrettierConfig(
     [
       {

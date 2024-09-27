@@ -28,7 +28,7 @@ import type { VendoredPrettierOptionsRequired } from './prettier-rule'
 import type { MaybePromise } from './type-utils'
 
 export type ESLintConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = ConfigWithExtends | Linter.Config<T>
-export const defineESLintConfig = (configs: () => MaybePromise<ESLintConfig[]>) => {
+export const defineESLintConfig = (configs: () => MaybePromise<ESLintConfig[]>): MaybePromise<ESLintConfig[]> => {
   return configs instanceof Function ? configs() : configs
 }
 
@@ -77,7 +77,7 @@ export const presetESLintConfig = async ({
   typescript: typescriptOpts,
   unocss: unocssOpts,
   vue: vueOpts
-}: PresetOptions) => {
+}: PresetOptions): Promise<ESLintConfig[]> => {
   const configs: ESLintConfig[] = [defineGlobalIgnore(ignores[1] ?? [], ignores[0]), javascript()]
 
   configs.push(...(await applyConfig(a11y, a11yOpts)))

@@ -83,6 +83,6 @@ export const defineReactConfig = ({
   ]
 }
 
-export const react = (overrides?: ReactOverrideOptions) => {
+export const react = (overrides?: ReactOverrideOptions): ReactConfig[] => {
   return defineReactConfig(overrides)
 }

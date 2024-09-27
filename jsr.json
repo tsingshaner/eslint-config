@@ -1,0 +1,10 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "name": "@qingshaner/eslint-config",
+  "version": "0.4.1",
+  "exports": "./src/index.ts",
+  "publish": {
+    "include": ["LICENSE", "README.md", "src/**/*.ts"]
+  },
+  "exclude": ["test", "scripts", "fixtures", "!./src/*.rule.d.ts", "!./src/configs/biome.ts"]
+}

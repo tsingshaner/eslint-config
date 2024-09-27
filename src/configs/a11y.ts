@@ -62,7 +62,7 @@ export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverideOptions = {})
   ]
 }
 
-export const a11y = ({ jsx = {}, vue = {} }: A11yOverideOptions = {}) => {
+export const a11y = ({ jsx = {}, vue = {} }: A11yOverideOptions = {}): A11yConfig[] => {
   return defineA11yRules({
     jsx,
     vue: {

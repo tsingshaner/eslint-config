@@ -15,26 +15,20 @@
   "bugs": {
     "url": "https://github.com/tsingshaner/eslint-config"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
+  "keywords": ["eslint", "eslint-config"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./biome": "./biome.json"
+    "./biome": "./biome.shared.json"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "biome.json",
-    "dist"
-  ],
+  "files": ["biome.shared.json", "dist"],
   "engines": {
-    "node": ">=22.8.0",
+    "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
   },
   "publishConfig": {

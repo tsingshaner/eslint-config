@@ -1,5 +1,17 @@
 # @qingshaner/eslint-config
 
+## 0.5.0
+
+### Minor Changes
+
+- 5491062: Bump eslint-plugin-perfectionist to 3.7.0
+
+### Patch Changes
+
+- bc9f90a: Rename Biome config file
+- 5491062: Bump typesctipt-eslint to ^8.7.0
+- 9d5a16e: Exports desclare biome config
+
 ## 0.4.0
 
 ### Minor Changes

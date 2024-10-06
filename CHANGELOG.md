@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.6.1
+
+### Patch Changes
+
+- 54ccb09: Fix eslint-plugin-react dts error
+
 ## 0.6.0
 
 ### Minor Changes

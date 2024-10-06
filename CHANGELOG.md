@@ -1,5 +1,15 @@
 # @qingshaner/eslint-config
 
+## 0.6.0
+
+### Minor Changes
+
+- dcf7687: Bump dependencies
+
+### Patch Changes
+
+- 2e4f821: Fix perfectionist and vue rules.
+
 ## 0.5.0
 
 ### Minor Changes

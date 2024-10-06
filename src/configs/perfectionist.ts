@@ -46,6 +46,7 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
 
   config.rules = {
     ...setWarn(config.rules ?? {}),
+    'perfectionist/sort-array-includes': ['warn', { type: 'natural' }],
     'perfectionist/sort-imports': [
       'warn',
       {
@@ -69,7 +70,15 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
         ],
         ignoreCase: true,
         internalPattern: ['@/**', '~/**'],
-        newlinesBetween: 'always'
+        newlinesBetween: 'always',
+        type: 'natural'
+      }
+    ],
+    'perfectionist/sort-objects': [
+      'warn',
+      {
+        partitionByNewLine: true,
+        type: 'natural'
       }
     ],
     ...overrides?.rules

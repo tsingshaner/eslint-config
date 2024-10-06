@@ -26,6 +26,7 @@ import type {
 } from './configs'
 import type { VendoredPrettierOptionsRequired } from './prettier-rule'
 import type { MaybePromise } from './type-utils'
+import type { VueRuleOptions } from './vue.rule'
 
 export type ESLintConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = ConfigWithExtends | Linter.Config<T>
 export const defineESLintConfig = (configs: () => MaybePromise<ESLintConfig[]>): MaybePromise<ESLintConfig[]> => {
@@ -78,7 +79,10 @@ export const presetESLintConfig = async ({
   unocss: unocssOpts,
   vue: vueOpts
 }: PresetOptions): Promise<ESLintConfig[]> => {
-  const configs: ESLintConfig[] = [defineGlobalIgnore(ignores[1] ?? [], ignores[0]), javascript()]
+  const configs: ESLintConfig[] = [
+    defineGlobalIgnore(ignores[1] ?? [], ignores[0]),
+    javascript()
+  ] satisfies ESLintConfig[]
 
   configs.push(...(await applyConfig(a11y, a11yOpts)))
   configs.push(...(await applyConfig(jsonc, jsoncOpts)))
@@ -86,6 +90,28 @@ export const presetESLintConfig = async ({
   configs.push(...(await applyConfig(prettier, prettierOpts)))
   configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))
   configs.push(...(await applyConfig(react, reactOpts)))
+
+  if (vueOpts && perfectionistOpts) {
+    const overrideRules = {
+      'vue/attributes-order': 'off',
+      'vue/order-in-components': 'off',
+      'vue/sort-keys': 'off'
+    } satisfies VueRuleOptions
+
+    vueOpts =
+      typeof vueOpts === 'boolean'
+        ? {
+            rules: overrideRules
+          }
+        : {
+            ...vueOpts,
+            rules: {
+              ...vueOpts.rules,
+              ...overrideRules
+            }
+          }
+  }
+
   configs.push(...(await applyConfig(vue, vueOpts)))
   configs.push(...(await applyConfig(unocss, unocssOpts)))
   configs.push(...extra)

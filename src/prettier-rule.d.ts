@@ -10,6 +10,7 @@ export interface PrettierRuleOptions {
 /* ======= Declarations ======= */
 // ----- prettier/prettier -----
 type PrettierPrettier =
+  | []
   | [
       PrettierOptions,
       {
@@ -21,7 +22,6 @@ type PrettierPrettier =
         usePrettierrc?: boolean
       }
     ]
-  | []
   | [PrettierOptions]
 
 export type PrettierOptions = Partial<Omit<VendoredPrettierOptionsRequired, 'parser'>> &

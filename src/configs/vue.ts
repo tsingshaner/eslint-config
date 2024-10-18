@@ -1,5 +1,4 @@
 import { mergeProcessors } from 'eslint-merge-processors'
-// @ts-expect-error:7016 - Could not find a declaration file for module 'eslint-plugin-vue'.
 import vuePlugin from 'eslint-plugin-vue'
 import processorVueBlocks from 'eslint-processor-vue-blocks'
 import { parser as tsParser } from 'typescript-eslint'

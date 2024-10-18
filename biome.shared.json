@@ -72,6 +72,7 @@
         "useHookAtTopLevel": "error"
       },
       "nursery": {
+        "useAtIndex": "info",
         "useSortedClasses": "error",
         "useAriaPropsSupportedByRole": "error",
         "useComponentExportOnlyModules": {
@@ -79,7 +80,8 @@
           "options": {
             "allowConstantExport": true
           }
-        }
+        },
+        "useCollapsedIf": "warn"
       },
       "recommended": true,
       "style": {

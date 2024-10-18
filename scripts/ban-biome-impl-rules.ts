@@ -8,6 +8,7 @@ import { fileURLToPath } from 'node:url'
 
 const implementedPlugins = [
   ['@mysticatea/eslint-plugin', '@mysticatea/'],
+  ['@next/eslint-plugin-next', '@next/next/'],
   ['ESLint', ''],
   ['GraphQL-ESLint', '@graphql-eslint/'],
   ['eslint-plugin-barrel-files', 'barrel-files/'],
@@ -16,6 +17,7 @@ const implementedPlugins = [
   ['eslint-plugin-jest', 'jest/'],
   ['eslint-plugin-jsx-a11y', 'jsx-a11y/'],
   ['eslint-plugin-n', 'n/'],
+  ['eslint-plugin-no-secrets', 'no-secrets/'],
   ['eslint-plugin-react', 'react/'],
   ['eslint-plugin-react-hooks', 'react-hooks/'],
   ['eslint-plugin-react-refresh', 'react-refresh/'],

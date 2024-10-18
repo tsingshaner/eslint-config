@@ -65,7 +65,8 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
           ['parent', 'sibling', 'index', 'object'],
           'component',
           ['parent-type', 'sibling-type', 'index-type'],
-          ['style', 'side-effect-style'],
+          'style',
+          'side-effect-style',
           'unknown'
         ],
         ignoreCase: true,

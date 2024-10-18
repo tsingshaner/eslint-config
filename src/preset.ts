@@ -93,7 +93,6 @@ export const presetESLintConfig = async ({
 
   if (vueOpts && perfectionistOpts) {
     const overrideRules = {
-      'vue/attributes-order': 'off',
       'vue/order-in-components': 'off',
       'vue/sort-keys': 'off'
     } satisfies VueRuleOptions

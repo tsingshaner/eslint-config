@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.7.1
+
+### Patch Changes
+
+- 23b53d4: Fix vue attributes order rule
+
 ## 0.7.0
 
 ### Minor Changes

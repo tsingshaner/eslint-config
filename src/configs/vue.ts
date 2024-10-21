@@ -106,6 +106,25 @@ export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}): VueC
     rules: {
       'vue/array-bracket-spacing': ['error', 'never'],
       'vue/arrow-spacing': ['error', { after: true, before: true }],
+      'vue/attributes-order': [
+        'error',
+        {
+          alphabetical: true,
+          order: [
+            'DEFINITION',
+            'LIST_RENDERING',
+            'CONDITIONALS',
+            'RENDER_MODIFIERS',
+            'GLOBAL',
+            ['UNIQUE', 'SLOT'],
+            'TWO_WAY_BINDING',
+            'OTHER_DIRECTIVES',
+            'OTHER_ATTR',
+            'EVENTS',
+            'CONTENT'
+          ]
+        }
+      ],
       'vue/block-order': ['warn', { order: ['script', 'template', 'style'] }],
       'vue/block-spacing': ['error', 'always'],
       'vue/block-tag-newline': ['error', { multiline: 'always', singleline: 'always' }],

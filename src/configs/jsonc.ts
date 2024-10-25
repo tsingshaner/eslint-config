@@ -57,13 +57,14 @@ export const jsonc = (overrides?: JSONCConfigOverrideOptions): JSONCConfig[] => 
         'jsonc/sort-array-values': [
           'warn',
           {
-            order: { type: 'asc' },
+            order: { natural: true, type: 'asc' },
             pathPattern: '^files$'
           }
         ],
         'jsonc/sort-keys': [
           'warn',
           {
+            allowLineSeparatedGroups: true,
             order: [
               'publisher',
               'name',
@@ -113,18 +114,22 @@ export const jsonc = (overrides?: JSONCConfigOverrideOptions): JSONCConfig[] => 
             pathPattern: '^$'
           },
           {
+            allowLineSeparatedGroups: true,
             order: { type: 'asc' },
             pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$'
           },
           {
+            allowLineSeparatedGroups: true,
             order: { type: 'asc' },
             pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$'
           },
           {
+            allowLineSeparatedGroups: true,
             order: ['types', 'import', 'require', 'default'],
             pathPattern: '^exports.*$'
           },
           {
+            allowLineSeparatedGroups: true,
             order: [
               // client hooks only
               'pre-commit',
@@ -150,10 +155,12 @@ export const jsonc = (overrides?: JSONCConfigOverrideOptions): JSONCConfig[] => 
         'jsonc/sort-keys': [
           'error',
           {
+            allowLineSeparatedGroups: true,
             order: ['extends', 'compilerOptions', 'references', 'files', 'include', 'exclude'],
             pathPattern: '^$'
           },
           {
+            allowLineSeparatedGroups: true,
             order: [
               /* Projects */
               'incremental',

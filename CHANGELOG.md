@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.7.2
+
+### Patch Changes
+
+- 4c2e6d3: JSONC key sort allow use line to separated groups.
+
 ## 0.7.1
 
 ### Patch Changes

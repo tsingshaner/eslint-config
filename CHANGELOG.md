@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- 0f29887: Fix type error & patch vue options overrides order
+
+## 0.7.2
+
+### Patch Changes
+
 - 4c2e6d3: JSONC key sort allow use line to separated groups.
 
 ## 0.7.1

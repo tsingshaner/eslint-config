@@ -1,7 +1,7 @@
 {
   "name": "@qingshaner/eslint-config",
   "type": "module",
-  "version": "0.7.2",
+  "version": "0.7.1",
   "description": "ESLint configs for qingshaner",
   "author": {
     "name": "qingshaner",
@@ -15,10 +15,7 @@
   "bugs": {
     "url": "https://github.com/tsingshaner/eslint-config"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
+  "keywords": ["eslint", "eslint-config"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,10 +26,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "biome.shared.json",
-    "dist"
-  ],
+  "files": ["biome.shared.json", "dist"],
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
@@ -44,7 +38,7 @@
   "scripts": {
     "build": "pnpm tsup --config=config/tsup.config.ts",
     "changeset-version": "changeset version",
-    "changeset-publish": "pnpm gen && pnpm build && changeset publish",
+    "changeset-publish": "changeset publish",
     "format": "biome format . --write",
     "gen": "pnpm gen:biome && pnpm gen:types",
     "gen:biome": "tsx ./scripts/ban-biome-impl-rules.ts",

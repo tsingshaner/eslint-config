@@ -49,6 +49,10 @@ export const defineReactConfig = ({
   rules,
   settings
 }: ReactOverrideOptions = {}): ReactConfig[] => {
+  if (reactPlugin.configs.flat === undefined) {
+    throw new Error('`eslint-plugin-react` some how does not have a `flat` config')
+  }
+
   return [
     {
       files: files,

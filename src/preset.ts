@@ -105,8 +105,8 @@ export const presetESLintConfig = async ({
         : {
             ...vueOpts,
             rules: {
-              ...vueOpts.rules,
-              ...overrideRules
+              ...overrideRules,
+              ...vueOpts.rules
             }
           }
   }

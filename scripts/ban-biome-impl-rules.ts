@@ -3,8 +3,8 @@
  */
 
 import { writeFile } from 'node:fs/promises'
+import { resolve } from 'node:path'
 import { exit } from 'node:process'
-import { fileURLToPath } from 'node:url'
 
 const implementedPlugins = [
   ['@mysticatea/eslint-plugin', '@mysticatea/'],
@@ -116,5 +116,5 @@ export const banBiomeRepetitiveConfig = (): Linter.Config => {
   return ${JSON.stringify(config, null, 2)}
 }
 `
-  return writeFile(fileURLToPath(new URL('../src/configs/biome.ts', import.meta.url)), code)
+  return writeFile(resolve(import.meta.dirname, '../src/configs/biome.ts'), code)
 }

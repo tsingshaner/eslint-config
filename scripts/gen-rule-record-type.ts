@@ -1,6 +1,5 @@
 import { writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
-import { fileURLToPath } from 'node:url'
 
 import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
@@ -17,7 +16,7 @@ interface RuleConfig {
 
 await main()
 async function main() {
-  const ROOT_DIR = fileURLToPath(new URL('../src', import.meta.url))
+  const ROOT_DIR = resolve(import.meta.dirname, '../src')
   const ruleOptions: RuleConfig[] = [
     {
       configs: a11y(),

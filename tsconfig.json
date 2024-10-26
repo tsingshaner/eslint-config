@@ -1,8 +1,30 @@
 {
-  "references": [
-    {
-      "path": "config/tsconfig.lib.json"
-    }
-  ],
-  "files": []
+  "compilerOptions": {
+    "target": "es2023",
+    "jsx": "react",
+    "lib": ["esnext"],
+    "useDefineForClassFields": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "types": [],
+    "strict": true,
+    "strictNullChecks": true,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "../scripts/**/*.ts",
+    "../src",
+    "../test",
+    "./*.ts",
+    "../**/*.vue",
+    "../**/*.tsx",
+    "../**/*.ts",
+    "../**/*.mts"
+  ]
 }

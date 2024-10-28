@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.8.0
+
+### Minor Changes
+
+- 0aab046: Perfectionist sort classes default enable partition by comment
+
 ## 0.7.2
 
 ### Patch Changes

@@ -47,6 +47,13 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
   config.rules = {
     ...setWarn(config.rules ?? {}),
     'perfectionist/sort-array-includes': ['warn', { type: 'natural' }],
+    'perfectionist/sort-classes': [
+      'warn',
+      {
+        partitionByComment: true,
+        type: 'natural'
+      }
+    ],
     'perfectionist/sort-imports': [
       'warn',
       {

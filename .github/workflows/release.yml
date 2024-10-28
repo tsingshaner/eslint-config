@@ -51,11 +51,7 @@ jobs:
           commit: 'chore(release): update release & CHANGELOG.md'
           title: '📦 Update Packages Version'
           publish: pnpm changeset-publish
-          version: |
-            pnpm changeset-version
-            NPM_PACKAGE_VERSION=$(jq -r '.version' package.json)
-            sed -i -E "s/\"version\": \"[^\"]+\"/\"version\": \"${NPM_PACKAGE_VERSION}\"/" jsr.json
-
+          version: pnpm changeset-version
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}

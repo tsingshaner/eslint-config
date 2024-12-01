@@ -32,7 +32,6 @@ export type ESLintConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = Co
 export const defineESLintConfig = (configs: () => MaybePromise<ESLintConfig[]>): MaybePromise<ESLintConfig[]> => {
   return configs instanceof Function ? configs() : configs
 }
-
 const applyConfig = <
   K extends unknown[],
   U extends MaybePromise<ESLintConfig[]>,
@@ -44,10 +43,8 @@ const applyConfig = <
   if (!args[0]) {
     return [] as ESLintConfig[] as U
   }
-
   return args[0] === true ? factory() : factory(...(args as K))
 }
-
 export interface PresetOptions {
   a11y?: A11yOverideOptions | boolean
   /** Disable biome impled rules */

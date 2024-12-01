@@ -6,7 +6,6 @@ import { GLOB_TS, GLOB_TSX } from '../globs'
 
 import type { TypeScriptRuleOptions } from '../typescript.rule'
 
-type ConfigArray = (typeof configs)['recommendedTypeChecked']
 // @ts-expect-error is valid
 export type TypeScriptConfig = Linter.Config<TypeScriptRuleOptions>
 export type TypeScriptConfigCollection = keyof typeof configs
@@ -14,6 +13,8 @@ export interface TypeScriptOverrideOptions {
   languageOptions?: ConfigArray[0]['languageOptions']
   rules?: TypeScriptRuleOptions
 }
+
+type ConfigArray = (typeof configs)['recommendedTypeChecked']
 
 /**
  * Define a TypeScript config with overrides.

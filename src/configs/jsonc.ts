@@ -5,6 +5,8 @@ import type { Linter } from 'eslint'
 import type { JSONCRuleOptions } from '../jsonc.rule'
 import type { IncludePrefix, OmitItem } from '../type-utils'
 
+// @ts-expect-error is valid
+export type JSONCConfig = Linter.Config<JSONCRuleOptions>
 export type JSONCConfigCollection = OmitItem<
   IncludePrefix<keyof typeof jsoncPlugin.configs, 'flat/'>,
   'flat/all' | 'flat/base'
@@ -12,8 +14,6 @@ export type JSONCConfigCollection = OmitItem<
 export interface JSONCConfigOverrideOptions {
   rules?: JSONCRuleOptions
 }
-// @ts-expect-error is valid
-export type JSONCConfig = Linter.Config<JSONCRuleOptions>
 
 export const defineJSONCConfig = <T extends JSONCConfigCollection>(
   collection: T | T[],

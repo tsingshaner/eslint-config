@@ -8,21 +8,19 @@ import { GLOB_JSX, GLOB_TSX, GLOB_VUE } from '../globs'
 
 import type { A11yRuleOptions } from '../a11y.rule'
 
-interface JSXA11yPlugin {
-  flatConfigs: Record<'recommended', Record<'rules', Linter.Config['rules']>>
-  meta: Record<'name' | 'version', string>
-  rules: Record<string, Rule.RuleModule>
-}
-
 // @ts-expect-error is valid
 export type A11yConfig = Linter.Config<A11yRuleOptions>
-
+export type A11yOverideOptions = Partial<Record<'jsx' | 'vue', A11yOverideOptionsItem>>
 export interface A11yOverideOptionsItem {
   files?: string[]
   rules?: A11yRuleOptions
 }
 
-export type A11yOverideOptions = Partial<Record<'jsx' | 'vue', A11yOverideOptionsItem>>
+interface JSXA11yPlugin {
+  flatConfigs: Record<'recommended', Record<'rules', Linter.Config['rules']>>
+  meta: Record<'name' | 'version', string>
+  rules: Record<string, Rule.RuleModule>
+}
 
 export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverideOptions = {}): A11yConfig[] => {
   const vueA11yPluginName = 'vuejs-accessibility'

@@ -11,6 +11,13 @@ import { mergeRules } from '../merge-rules'
 
 import type { VueRuleOptions } from '../vue.rule'
 
+// @ts-expect-error is valid
+export type VueConfig = Linter.Config<VueRuleOptions>
+export interface VueConfigOverrideOptions {
+  rules?: VueRuleOptions
+  version?: 2 | 3
+}
+
 type ConfigName =
   | 'flat/base'
   | 'flat/essential'
@@ -19,17 +26,9 @@ type ConfigName =
   | 'flat/vue2-essential'
   | 'flat/vue2-recommended'
   | 'flat/vue2-strongly-recommended'
-
 interface VuePlugin {
   configs: Record<ConfigName, VueConfig[]>
   processors: Record<'.vue' | 'vue', Linter.Processor>
-}
-
-// @ts-expect-error is valid
-export type VueConfig = Linter.Config<VueRuleOptions>
-export interface VueConfigOverrideOptions {
-  rules?: VueRuleOptions
-  version?: 2 | 3
 }
 
 export const defineVueConfig = ({ rules: ruleOverrides, version = 3 }: VueConfigOverrideOptions = {}): VueConfig[] => {
@@ -144,6 +143,7 @@ export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}): VueC
       'vue/object-property-newline': ['warn', { allowMultiplePropertiesPerLine: true }],
       'vue/operator-linebreak': ['error', 'before'],
       'vue/padding-line-between-blocks': ['error', 'always'],
+      'vue/prefer-use-template-ref': 'warn',
       'vue/quote-props': ['error', 'consistent-as-needed'],
       'vue/require-default-prop': 'off',
       'vue/require-prop-types': 'off',

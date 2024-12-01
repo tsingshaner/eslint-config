@@ -1,32 +1,13 @@
 import type { Linter } from 'eslint'
 
+export type PrettierOptions = Partial<Omit<VendoredPrettierOptionsRequired, 'parser'>> &
+  Pick<VendoredPrettierOptionsRequired, 'parser'>
 export interface PrettierRuleOptions {
   /**
    * @see https://github.com/prettier/eslint-plugin-prettier#options
    */
   'prettier/prettier'?: Linter.RuleEntry<PrettierPrettier>
 }
-
-/* ======= Declarations ======= */
-// ----- prettier/prettier -----
-type PrettierPrettier =
-  | []
-  | [
-      PrettierOptions,
-      {
-        fileInfoOptions?: {
-          [key: string]: unknown
-          withNodeModules?: boolean
-        }
-        /** @default true */
-        usePrettierrc?: boolean
-      }
-    ]
-  | [PrettierOptions]
-
-export type PrettierOptions = Partial<Omit<VendoredPrettierOptionsRequired, 'parser'>> &
-  Pick<VendoredPrettierOptionsRequired, 'parser'>
-
 /** @link @antfu/esling-config/dist/index.d.ts */
 export interface VendoredPrettierOptionsRequired {
   /**
@@ -171,3 +152,20 @@ export interface VendoredPrettierOptionsRequired {
    */
   xmlWhitespaceSensitivity: 'ignore' | 'preserve' | 'strict'
 }
+
+/* ======= Declarations ======= */
+// ----- prettier/prettier -----
+type PrettierPrettier =
+  | []
+  | [
+      PrettierOptions,
+      {
+        fileInfoOptions?: {
+          [key: string]: unknown
+          withNodeModules?: boolean
+        }
+        /** @default true */
+        usePrettierrc?: boolean
+      }
+    ]
+  | [PrettierOptions]

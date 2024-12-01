@@ -1,8 +1,8 @@
 import { writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import { builtinRules } from 'eslint/use-at-your-own-risk'
 import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
+import { builtinRules } from 'eslint/use-at-your-own-risk'
 
 import type { Linter } from 'eslint'
 
@@ -15,6 +15,17 @@ interface RuleConfig {
 }
 
 await main()
+async function extractRuleTypes(
+  configs: Linter.Config[],
+  output: Parameters<typeof writeFile>[0],
+  exportTypeName = 'RuleOptions'
+) {
+  const dts = await flatConfigsToRulesDTS(configs, {
+    exportTypeName,
+    includeAugmentation: false
+  })
+  return writeFile(output, dts)
+}
 async function main() {
   const ROOT_DIR = resolve(import.meta.dirname, '../src')
   const ruleOptions: RuleConfig[] = [
@@ -57,16 +68,4 @@ async function main() {
   })
 
   return Promise.all(promises)
-}
-
-async function extractRuleTypes(
-  configs: Linter.Config[],
-  output: Parameters<typeof writeFile>[0],
-  exportTypeName = 'RuleOptions'
-) {
-  const dts = await flatConfigsToRulesDTS(configs, {
-    exportTypeName,
-    includeAugmentation: false
-  })
-  return writeFile(output, dts)
 }

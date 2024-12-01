@@ -4,9 +4,9 @@ import type { Linter } from 'eslint'
 
 import type { PerfectionistRuleOptions } from '../perfectionist.rule'
 
-export type PerfectionistConfigCollection = keyof typeof perfectionistPlugin.configs
 // @ts-expect-error is valid
 export type PerfectionistConfig = Linter.Config<PerfectionistRuleOptions>
+export type PerfectionistConfigCollection = keyof typeof perfectionistPlugin.configs
 export interface PerfectionistOverrideOptions {
   rules?: PerfectionistRuleOptions
 }
@@ -15,6 +15,7 @@ export const definePerfectionistConfig = <T extends PerfectionistConfigCollectio
   collection: T,
   overrides?: PerfectionistOverrideOptions
 ): PerfectionistConfig => {
+  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
   const config: PerfectionistConfig = perfectionistPlugin.configs[collection]
 
   return {
@@ -60,7 +61,7 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
         customGroups: {
           type: {},
           value: {
-            component: ['@/*.vue', '*.vue']
+            component: ['^@/.*\\.vue', '.*\\.vue']
           }
         },
         groups: [
@@ -77,8 +78,17 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
           'unknown'
         ],
         ignoreCase: true,
-        internalPattern: ['@/**', '~/**'],
+        internalPattern: ['^@/.*', '^~/.*'],
         newlinesBetween: 'always',
+        partitionByComment: true,
+        type: 'natural'
+      }
+    ],
+    'perfectionist/sort-modules': [
+      'warn',
+      {
+        newlinesBetween: 'always',
+        partitionByComment: true,
         type: 'natural'
       }
     ],

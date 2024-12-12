@@ -1,5 +1,20 @@
 # @qingshaner/eslint-config
 
+## 0.9.0
+
+### Minor Changes
+
+- 45baa21: bump dependencies
+
+  - bump `eslint-plugin-perfectionist` to v4
+  - bump `@unocss/eslint-plugin` to v0.64.1
+  - preset rule add [`perfectionist/sort-modules`](https://perfectionist.dev/rules/sort-modules)
+  - preset rule add [`vue/prefer-use-template-ref`](https://eslint.vuejs.org/rules/prefer-use-template-ref.html)
+
+### Patch Changes
+
+- 8e5b9a0: Use vite to build project.
+
 ## 0.8.0
 
 ### Minor Changes

@@ -1,5 +1,5 @@
 export { a11y, defineA11yRules } from './a11y'
-export type { A11yConfig, A11yOverideOptions } from './a11y'
+export type { A11yConfig, A11yOverrideOptions } from './a11y'
 
 export { banBiomeRepetitiveConfig } from './biome'
 export { defineGlobalIgnore } from './ignore'
@@ -22,7 +22,7 @@ export type { ReactConfig, ReactOverrideOptions } from './react'
 export { defineTypeScriptConfig, typescript } from './typescript'
 export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './typescript'
 
-export { defeneUnoCSSConfig, unocss } from './unocss'
+export { defineUnoCSSConfig, unocss } from './unocss'
 export type { UnoCSSConfig, UnoCSSOverrideOptions } from './unocss'
 
 export { defineVueConfig, vue } from './vue'

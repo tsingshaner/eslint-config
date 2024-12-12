@@ -1,13 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es2023",
+    "target": "esnext",
     "jsx": "react",
     "lib": ["esnext"],
     "useDefineForClassFields": true,
+    "baseUrl": ".",
+    "rootDir": ".",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": [],
+    "types": ["vitest", "vite/client"],
     "strict": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
@@ -18,13 +20,13 @@
     "skipLibCheck": true
   },
   "include": [
-    "../scripts/**/*.ts",
-    "../src",
-    "../test",
-    "./*.ts",
-    "../**/*.vue",
-    "../**/*.tsx",
-    "../**/*.ts",
-    "../**/*.mts"
+    "scripts",
+    "src",
+    "test",
+    "*.ts",
+    "fixtures/**/*.vue",
+    "fixtures/**/*.tsx",
+    "fixtures/**/*.ts",
+    "fixtures/**/*.mts"
   ]
 }

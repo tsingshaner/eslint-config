@@ -16,7 +16,7 @@ import {
 } from './configs'
 
 import type {
-  A11yOverideOptions,
+  A11yOverrideOptions,
   JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
   ReactOverrideOptions,
@@ -46,13 +46,13 @@ const applyConfig = <
   return args[0] === true ? factory() : factory(...(args as K))
 }
 export interface PresetOptions {
-  a11y?: A11yOverideOptions | boolean
+  a11y?: A11yOverrideOptions | boolean
   /** Disable biome impled rules */
   biome?: boolean
   /** Extra custom eslint flat configs */
   extra?: ESLintConfig[]
   /** Ignore check files */
-  ignores: [ignoreAbsoluePath: string, overrides?: string[]]
+  ignores: [ignoreAbsolutePath: string, overrides?: string[]]
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>

@@ -6,7 +6,10 @@ import type { PerfectionistRuleOptions } from '../perfectionist.rule'
 
 // @ts-expect-error is valid
 export type PerfectionistConfig = Linter.Config<PerfectionistRuleOptions>
-export type PerfectionistConfigCollection = keyof typeof perfectionistPlugin.configs
+export type PerfectionistConfigCollection =
+  | 'recommended-alphabetical'
+  | 'recommended-line-length'
+  | 'recommended-natural'
 export interface PerfectionistOverrideOptions {
   rules?: PerfectionistRuleOptions
 }
@@ -15,8 +18,9 @@ export const definePerfectionistConfig = <T extends PerfectionistConfigCollectio
   collection: T,
   overrides?: PerfectionistOverrideOptions
 ): PerfectionistConfig => {
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-  const config: PerfectionistConfig = perfectionistPlugin.configs[collection]
+  const config = (perfectionistPlugin as { configs: Record<PerfectionistConfigCollection, Linter.Config> }).configs[
+    collection
+  ]
 
   return {
     name: 'qingshaner/perfectionist',

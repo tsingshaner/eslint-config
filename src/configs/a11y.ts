@@ -10,8 +10,8 @@ import type { A11yRuleOptions } from '../a11y.rule'
 
 // @ts-expect-error is valid
 export type A11yConfig = Linter.Config<A11yRuleOptions>
-export type A11yOverideOptions = Partial<Record<'jsx' | 'vue', A11yOverideOptionsItem>>
-export interface A11yOverideOptionsItem {
+export type A11yOverrideOptions = Partial<Record<'jsx' | 'vue', A11yOverrideOptionsItem>>
+export interface A11yOverrideOptionsItem {
   files?: string[]
   rules?: A11yRuleOptions
 }
@@ -22,7 +22,7 @@ interface JSXA11yPlugin {
   rules: Record<string, Rule.RuleModule>
 }
 
-export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverideOptions = {}): A11yConfig[] => {
+export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverrideOptions = {}): A11yConfig[] => {
   const vueA11yPluginName = 'vuejs-accessibility'
 
   return [
@@ -60,7 +60,7 @@ export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverideOptions = {})
   ]
 }
 
-export const a11y = ({ jsx = {}, vue = {} }: A11yOverideOptions = {}): A11yConfig[] => {
+export const a11y = ({ jsx = {}, vue = {} }: A11yOverrideOptions = {}): A11yConfig[] => {
   return defineA11yRules({
     jsx,
     vue: {

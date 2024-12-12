@@ -1,6 +1,6 @@
 import unocssPlugin from '@unocss/eslint-plugin'
 
-import type { Linter } from 'eslint'
+import type { ESLint, Linter } from 'eslint'
 
 import type { UnoCSSRuleOptions } from '../unocss.rule'
 
@@ -11,12 +11,12 @@ export interface UnoCSSOverrideOptions {
   rules?: UnoCSSRuleOptions
 }
 
-export const defeneUnoCSSConfig = ({ files, rules }: UnoCSSOverrideOptions = {}): [UnoCSSConfig] => {
+export const defineUnoCSSConfig = ({ files, rules }: UnoCSSOverrideOptions = {}): [UnoCSSConfig] => {
   return [
     {
       ...(files && { files }),
       name: 'qingshaner/unocss',
-      plugins: unocssPlugin.configs.flat.plugins,
+      plugins: unocssPlugin.configs.flat.plugins as unknown as Record<'unocss', ESLint.Plugin>,
       rules: {
         ...unocssPlugin.configs.flat.rules,
         ...rules
@@ -25,4 +25,4 @@ export const defeneUnoCSSConfig = ({ files, rules }: UnoCSSOverrideOptions = {})
   ]
 }
 
-export const unocss = (overrides?: UnoCSSOverrideOptions): UnoCSSConfig[] => defeneUnoCSSConfig(overrides)
+export const unocss = (overrides?: UnoCSSOverrideOptions): UnoCSSConfig[] => defineUnoCSSConfig(overrides)

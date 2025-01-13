@@ -15,10 +15,7 @@
   "bugs": {
     "url": "https://github.com/tsingshaner/eslint-config"
   },
-  "keywords": [
-    "eslint",
-    "eslint-config"
-  ],
+  "keywords": ["eslint", "eslint-config"],
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -29,10 +26,7 @@
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
-  "files": [
-    "biome.shared.json",
-    "dist"
-  ],
+  "files": ["biome.shared.json", "dist"],
   "engines": {
     "node": ">=20.0.0",
     "pnpm": ">=9.0.0"
@@ -58,7 +52,11 @@
   },
   "peerDependencies": {
     "@biomejs/biome": ">=1.9.0",
-    "eslint": ">=9.10"
+    "eslint": ">=9.10",
+    "react": ">=19.0.0",
+    "typescript": ">=5.7.0",
+    "unocss": ">=65.0.0",
+    "vue": ">=3.5.0"
   },
   "peerDependenciesMeta": {
     "@biomejs/biome": {
@@ -66,43 +64,51 @@
     },
     "eslint": {
       "optional": false
+    },
+    "react": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    },
+    "unocss": {
+      "optional": true
+    },
+    "vue": {
+      "optional": true
     }
   },
   "dependencies": {
-    "@eslint/js": "^9.17.0",
-    "@unocss/eslint-plugin": "^0.65.3",
+    "@eslint/js": "^9.18.0",
+    "@unocss/eslint-plugin": "^65.4.0",
     "eslint-merge-processors": "^0.1.0",
     "eslint-plugin-jsonc": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-perfectionist": "^4.4.0",
+    "eslint-plugin-perfectionist": "^4.6.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.3",
     "eslint-plugin-vue": "^9.32.0",
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-processor-vue-blocks": "^0.1.2",
     "globals": "^15.14.0",
-    "typescript-eslint": "^8.19.0",
+    "typescript-eslint": "^8.19.1",
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.11",
-    "@eslint/compat": "^1.2.4",
+    "@eslint/compat": "^1.2.5",
     "@types/eslint__js": "^8.42.3",
-    "@types/node": "^22.10.3",
-    "@types/react": "^19.0.2",
+    "@types/node": "^22.10.5",
+    "@types/react": "^19.0.6",
     "@vitest/coverage-v8": "^2.1.8",
     "eslint-typegen": "^0.3.2",
     "jiti": "^2.4.2",
     "lint-staged": "^15.3.0",
-    "react": "^19.0.0",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.19.2",
-    "typescript": "^5.7.2",
-    "unocss": "^0.65.3",
-    "vite": "^6.0.6",
-    "vite-plugin-dts": "^4.4.0",
-    "vitest": "^2.1.8",
-    "vue": "^3.5.13"
+    "vite": "^6.0.7",
+    "vite-plugin-dts": "^4.5.0",
+    "vitest": "^2.1.8"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

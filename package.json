@@ -87,7 +87,7 @@
   "dependencies": {
     "@eslint/js": "^9.18.0",
     "@unocss/eslint-plugin": "^65.4.0",
-    "eslint-merge-processors": "^0.1.0",
+    "eslint-merge-processors": "^1.0.0",
     "eslint-plugin-jsonc": "^2.18.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-perfectionist": "^4.6.0",

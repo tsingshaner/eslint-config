@@ -1,5 +1,12 @@
 # @qingshaner/eslint-config
 
+## 0.10.0
+
+### Minor Changes
+
+- 1230e7a: Bump dependencies
+- 4de40e3: Bump unocss to v65
+
 ## 0.9.0
 
 ### Minor Changes

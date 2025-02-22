@@ -34,6 +34,9 @@ jobs:
       - name: Gen code
         run: pnpm gen
 
+      - name: Build
+        run: pnpm build
+
       - name: Lint
         run: pnpm lint
 

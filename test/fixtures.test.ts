@@ -21,8 +21,7 @@ export default presetESLintConfig(${JSON.stringify(config, null, 2)})\n`
   await writeFile(dir, configContent)
 }
 
-const runESLint = (configPath: string, runningDir: string) =>
-  `pnpm eslint -c ${configPath} --flag unstable_ts_config ${runningDir} --fix`
+const runESLint = (configPath: string, runningDir: string) => `pnpm eslint -c ${configPath} ${runningDir} --fix`
 
 describe.concurrent('fixtures', (test) => {
   const rootDir = resolve(import.meta.dirname, '..')

@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-import { presetESLintConfig } from './src'
+import { presetESLintConfig } from './dist/index'
 
 export default presetESLintConfig({
   a11y: true,

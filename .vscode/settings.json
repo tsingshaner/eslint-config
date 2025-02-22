@@ -8,10 +8,6 @@
     "source.sortImports": "never"
   },
 
-  "eslint.options": {
-    "flags": ["unstable_ts_config"]
-  },
-
   "prettier.enable": false,
 
   "typescript.tsdk": "node_modules\\typescript\\lib",

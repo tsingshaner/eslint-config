@@ -29,38 +29,22 @@ async function extractRuleTypes(
 async function main() {
   const ROOT_DIR = resolve(import.meta.dirname, '../src')
   const ruleOptions: RuleConfig[] = [
-    {
-      configs: a11y(),
-      exportName: 'A11yRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'a11y.rule.d.ts')
-    },
+    { configs: a11y(), exportName: 'A11yRuleOptions', outputFileName: 'a11y.rule.d.ts' },
     {
       configs: [{ plugins: { '': { rules: Object.fromEntries(builtinRules.entries()) } } }],
       exportName: 'JavaScriptRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'javascript.rule.d.ts')
+      outputFileName: 'javascript.rule.d.ts'
     },
-    { configs: jsonc(), exportName: 'JSONCRuleOptions', outputFileName: resolve(ROOT_DIR, 'jsonc.rule.d.ts') },
+    { configs: jsonc(), exportName: 'JSONCRuleOptions', outputFileName: 'jsonc.rule.d.ts' },
     {
       configs: typescript('tsconfigRootDir') as Linter.Config[],
       exportName: 'TypeScriptRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'typescript.rule.d.ts')
+      outputFileName: 'typescript.rule.d.ts'
     },
-    {
-      configs: perfectionist(),
-      exportName: 'PerfectionistRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'perfectionist.rule.d.ts')
-    },
-    {
-      configs: react(),
-      exportName: 'ReactRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'react.rule.d.ts')
-    },
-    {
-      configs: unocss(),
-      exportName: 'UnoCSSRuleOptions',
-      outputFileName: resolve(ROOT_DIR, 'unocss.rule.d.ts')
-    },
-    { configs: vue(), exportName: 'VueRuleOptions', outputFileName: resolve(ROOT_DIR, 'vue.rule.d.ts') }
+    { configs: perfectionist(), exportName: 'PerfectionistRuleOptions', outputFileName: 'perfectionist.rule.d.ts' },
+    { configs: react(), exportName: 'ReactRuleOptions', outputFileName: 'react.rule.d.ts' },
+    { configs: unocss(), exportName: 'UnoCSSRuleOptions', outputFileName: 'unocss.rule.d.ts' },
+    { configs: vue(), exportName: 'VueRuleOptions', outputFileName: 'vue.rule.d.ts' }
   ]
 
   const promises = ruleOptions.map(({ configs, exportName, outputFileName }) => {

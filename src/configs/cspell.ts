@@ -52,7 +52,7 @@ export interface CSpellOverrideOptions extends Partial<Options> {
  * })
  * ```
  */
-export const cspell = ({ level, ...opts }: CSpellOverrideOptions = {}) =>
+export const cspell = ({ level, ...opts }: CSpellOverrideOptions = {}): [CSpellConfig] =>
   defineCSpellConfig(
     opts && {
       '@cspell/spellchecker': [level ?? 'warn', opts ?? {}]

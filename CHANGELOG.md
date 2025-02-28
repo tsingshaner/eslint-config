@@ -1,5 +1,12 @@
 # @qingshaner/eslint-config
 
+## 0.11.0
+
+### Minor Changes
+
+- 3bb6679: ## Feature
+  - add cspell plugin, see [cspell](https://cspell.org)
+
 ## 0.10.0
 
 ### Minor Changes

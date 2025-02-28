@@ -34,6 +34,7 @@ const ROOT = import.meta.dirname // this require Node.js 20+
 export default presetESLintConfig({
   a11y: true,
   biome: true,
+  cspell: { configFile: resolve(ROOT, 'cspell.yaml') }, // optional
   ignores: [resolve(ROOT, '.gitignore')],
   jsonc: true,
   perfectionist: true,
@@ -61,6 +62,16 @@ Also provide a optional Biome configuration.
 
 ```
 
+You can import a cspell configuration file.
+
+`// cspell.yaml`
+```yaml
+# yaml-language-server: $schema=https://raw.githubusercontent.com/streetsidesoftware/cspell/main/cspell.schema.json
+
+import:
+  - '@qingshaner/eslint-config/cspell'
+```
+
 ## 🧩 Builtin Plugins
 
 ### A11y
@@ -77,6 +88,10 @@ Disable `Biome` has implemented rules.
 `react-plugin-refresh`, `react-plugin-react-hooks` is replaced by Biome.
 
 JavaScript, TypeScript, CSS is formatted by Biome.
+
+### CSpell
+
+[`@cspell/eslint-plugin`](https://cspell.org) is used to check spelling errors.
 
 ### JSON or JSONC
 

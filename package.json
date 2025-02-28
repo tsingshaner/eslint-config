@@ -2,6 +2,7 @@
   "name": "@qingshaner/eslint-config",
   "type": "module",
   "version": "0.10.0",
+  "packageManager": "pnpm@10.5.0",
   "description": "ESLint configs for qingshaner",
   "author": {
     "name": "qingshaner",
@@ -25,7 +26,8 @@
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
-    "./biome": "./biome.shared.json"
+    "./biome": "./biome.shared.json",
+    "./cspell": "./cspell.yaml"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -35,7 +37,7 @@
   ],
   "engines": {
     "node": ">=20.0.0",
-    "pnpm": ">=9.0.0"
+    "pnpm": ">=10.0.0"
   },
   "publishConfig": {
     "access": "public",
@@ -85,6 +87,7 @@
     }
   },
   "dependencies": {
+    "@cspell/eslint-plugin": "^8.17.5",
     "@eslint/js": "^9.21.0",
     "@unocss/eslint-plugin": "^66.0.0",
     "eslint-merge-processors": "^2.0.0",
@@ -97,7 +100,7 @@
     "eslint-plugin-vuejs-accessibility": "^2.4.1",
     "eslint-processor-vue-blocks": "^2.0.0",
     "globals": "^16.0.0",
-    "typescript-eslint": "^8.24.1",
+    "typescript-eslint": "^8.25.0",
     "vue-eslint-parser": "^9.4.3"
   },
   "devDependencies": {
@@ -105,16 +108,23 @@
     "@eslint/compat": "^1.2.7",
     "@types/node": "^22.13.5",
     "@types/react": "^19.0.10",
-    "@vitest/coverage-v8": "^3.0.6",
+    "@vitest/coverage-v8": "^3.0.7",
     "eslint": "^9.21.0",
     "eslint-typegen": "^2.0.0",
     "jiti": "^2.4.2",
     "lint-staged": "^15.4.3",
     "simple-git-hooks": "^2.11.1",
     "tsx": "^4.19.3",
-    "vite": "^6.1.1",
-    "vite-plugin-dts": "^4.5.0",
-    "vitest": "^3.0.6"
+    "vite": "^6.2.0",
+    "vite-plugin-dts": "^4.5.1",
+    "vitest": "^3.0.7"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "@biomejs/biome",
+      "esbuild",
+      "simple-git-hooks"
+    ]
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

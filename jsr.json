@@ -4,7 +4,7 @@
   "version": "0.10.0",
   "exports": "./src/index.ts",
   "publish": {
-    "include": ["LICENSE", "README.md", "src/**/*.ts"]
+    "include": ["LICENSE", "README.md", "src/**/*.ts", "biome.shared.json", "cspell.yaml"]
   },
   "exclude": ["test", "scripts", "fixtures", "!./src/*.rule.d.ts", "!./src/configs/biome.ts"]
 }

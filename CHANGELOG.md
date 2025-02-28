@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.11.1
+
+### Patch Changes
+
+- d77eaae: fix miss cspell.yaml
+
 ## 0.11.0
 
 ### Minor Changes

@@ -1,3 +1,4 @@
+// cSpell: words JSXA
 // @ts-expect-error:7016 no declare module
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import vueA11y from 'eslint-plugin-vuejs-accessibility'

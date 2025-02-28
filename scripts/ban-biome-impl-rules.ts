@@ -7,7 +7,7 @@ import { resolve } from 'node:path'
 import { exit } from 'node:process'
 
 const implementedPlugins = [
-  ['@mysticatea/eslint-plugin', '@mysticatea/'],
+  ['@mysticatea/eslint-plugin', '@mysticatea/'], // cspell:disable-line
   ['@next/eslint-plugin-next', '@next/next/'],
   ['ESLint', ''],
   ['GraphQL-ESLint', '@graphql-eslint/'],
@@ -22,7 +22,7 @@ const implementedPlugins = [
   ['eslint-plugin-react-hooks', 'react-hooks/'],
   ['eslint-plugin-react-refresh', 'react-refresh/'],
   ['eslint-plugin-solid', 'solid/'],
-  ['eslint-plugin-sonarjs', 'sonarjs/'],
+  ['eslint-plugin-sonarjs', 'sonarjs/'], // cspell:disable-line
   ['eslint-plugin-stylistic', 'stylistic/'],
   ['eslint-plugin-unicorn', 'unicorn/'],
   ['eslint-plugin-unused-imports', 'unused-imports/'],
@@ -31,7 +31,7 @@ const implementedPlugins = [
 
 const ignoredPlugins: Readonly<string[]> = [
   /** for rust */
-  'Clippy',
+  'Clippy', // cspell:disable-line
   /** for css */
   'Stylelint'
 ]
@@ -75,11 +75,11 @@ const parseBannedRules = (tables: string[][]): string[] => {
       return []
     }
 
-    console.error(`Plugin not found on knowned plugins: ${name}`)
+    console.error(`Plugin not found on known plugins: ${name}`)
     exit(1)
   }
 
-  console.info(`Processing plugin: ${plugin[0]} prfix: ${plugin[1]}`)
+  console.info(`Processing plugin: ${plugin[0]} prefix: ${plugin[1]}`)
 
   return tables.splice(2).map((row) => {
     const rule = /^\[(.*)\]/.exec(row[0])

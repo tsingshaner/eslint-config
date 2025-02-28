@@ -127,6 +127,7 @@ export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}): VueC
       'vue/block-order': ['warn', { order: ['script', 'template', 'style'] }],
       'vue/block-spacing': ['error', 'always'],
       'vue/block-tag-newline': ['error', { multiline: 'always', singleline: 'always' }],
+      // cspell:disable-next-line
       'vue/brace-style': ['error', 'stroustrup', { allowSingleLine: true }],
       'vue/comma-dangle': ['warn', 'never'],
       'vue/comma-spacing': ['warn', { after: true, before: false }],

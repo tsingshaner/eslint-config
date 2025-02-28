@@ -4,6 +4,7 @@ import type { ConfigWithExtends } from 'typescript-eslint'
 import {
   a11y,
   banBiomeRepetitiveConfig,
+  cspell,
   defineGlobalIgnore,
   javascript,
   jsonc,
@@ -17,6 +18,8 @@ import {
 
 import type {
   A11yOverrideOptions,
+  Configs,
+  CSpellOverrideOptions,
   JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
   ReactOverrideOptions,
@@ -47,10 +50,14 @@ const applyConfig = <
 }
 export interface PresetOptions {
   a11y?: A11yOverrideOptions | boolean
-  /** Disable biome impled rules */
+  /**
+   * Set true to disable eslint rules which biome checked
+   * @defaultValue false
+   */
   biome?: boolean
+  cspell?: boolean | CSpellOverrideOptions
   /** Extra custom eslint flat configs */
-  extra?: ESLintConfig[]
+  extra?: (Configs | ESLintConfig)[]
   /** Ignore check files */
   ignores: [ignoreAbsolutePath: string, overrides?: string[]]
   jsonc?: boolean | JSONCConfigOverrideOptions
@@ -66,6 +73,7 @@ export interface PresetOptions {
 export const presetESLintConfig = async ({
   a11y: a11yOpts,
   biome,
+  cspell: cspellOpts,
   extra = [],
   ignores,
   jsonc: jsoncOpts,
@@ -82,6 +90,7 @@ export const presetESLintConfig = async ({
   ] satisfies ESLintConfig[]
 
   configs.push(...(await applyConfig(a11y, a11yOpts)))
+  configs.push(...(await applyConfig(cspell, cspellOpts)))
   configs.push(...(await applyConfig(jsonc, jsoncOpts)))
   configs.push(...(await applyConfig(perfectionist, perfectionistOpts)))
   configs.push(...(await applyConfig(prettier, prettierOpts)))

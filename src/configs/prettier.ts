@@ -15,7 +15,7 @@ export interface PrettierEnabledFiles {
    * @example ['*.html']
    */
   files: string[]
-  /** perttier parser */
+  /** prettier parser */
   parser: PrettierOptions['parser']
 }
 

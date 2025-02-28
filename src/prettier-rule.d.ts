@@ -8,7 +8,7 @@ export interface PrettierRuleOptions {
    */
   'prettier/prettier'?: Linter.RuleEntry<PrettierPrettier>
 }
-/** @link @antfu/esling-config/dist/index.d.ts */
+/** @link @antfu/eslint-config/dist/index.d.ts */
 export interface VendoredPrettierOptionsRequired {
   /**
    * Include parentheses around a sole arrow function parameter.
@@ -66,7 +66,7 @@ export interface VendoredPrettierOptionsRequired {
     | 'lwc'
     | 'markdown'
     | 'mdx'
-    | 'meriyah'
+    | 'meriyah' // @cspell:disable-line
     | 'scss'
     | 'typescript'
     | 'vue'

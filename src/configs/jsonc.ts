@@ -116,6 +116,7 @@ export const jsonc = (overrides?: JSONCConfigOverrideOptions): JSONCConfig[] => 
           {
             allowLineSeparatedGroups: true,
             order: { type: 'asc' },
+            // cspell:disable-next-line
             pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$'
           },
           {

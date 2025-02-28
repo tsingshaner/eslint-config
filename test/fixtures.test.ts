@@ -59,7 +59,7 @@ describe.concurrent('fixtures', (test) => {
     }
   })
 
-  test('undisable biome', async ({ expect }) => {
+  test('not disable biome', async ({ expect }) => {
     const groupDir = resolve(fixturesTempDir, 'not-disable-biome')
 
     await copySourceFiles(sourceDir, groupDir)
@@ -89,6 +89,7 @@ describe.concurrent('fixtures', (test) => {
       const stderr = (error as { stdout: string }).stdout
       const errorMessages = [
         "error  '_obj' is assigned a value but never used  no-unused-vars",
+        // @cspell:disable-next-line
         "rror  'nickname' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars",
         "error  'a' is assigned a value but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars",
         "error  '_t' is assigned a value but never used    no-unused-vars",

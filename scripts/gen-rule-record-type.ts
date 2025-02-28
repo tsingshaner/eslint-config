@@ -18,7 +18,7 @@ await main()
 async function extractRuleTypes(
   configs: Linter.Config[],
   output: Parameters<typeof writeFile>[0],
-  exportTypeName = 'RuleOptions'
+  exportTypeName: string
 ) {
   const dts = await flatConfigsToRulesDTS(configs, {
     exportTypeName,
@@ -29,26 +29,26 @@ async function extractRuleTypes(
 async function main() {
   const ROOT_DIR = resolve(import.meta.dirname, '../src')
   const ruleOptions: RuleConfig[] = [
-    { configs: a11y(), exportName: 'A11yRuleOptions', outputFileName: 'a11y.rule.d.ts' },
+    { configs: a11y(), exportName: 'A11y', outputFileName: 'a11y' },
     {
       configs: [{ plugins: { '': { rules: Object.fromEntries(builtinRules.entries()) } } }],
-      exportName: 'JavaScriptRuleOptions',
-      outputFileName: 'javascript.rule.d.ts'
+      exportName: 'JavaScript',
+      outputFileName: 'javascript'
     },
-    { configs: jsonc(), exportName: 'JSONCRuleOptions', outputFileName: 'jsonc.rule.d.ts' },
+    { configs: jsonc(), exportName: 'JSONC', outputFileName: 'jsonc' },
     {
       configs: typescript('tsconfigRootDir') as Linter.Config[],
-      exportName: 'TypeScriptRuleOptions',
-      outputFileName: 'typescript.rule.d.ts'
+      exportName: 'TypeScript',
+      outputFileName: 'typescript'
     },
-    { configs: perfectionist(), exportName: 'PerfectionistRuleOptions', outputFileName: 'perfectionist.rule.d.ts' },
-    { configs: react(), exportName: 'ReactRuleOptions', outputFileName: 'react.rule.d.ts' },
-    { configs: unocss(), exportName: 'UnoCSSRuleOptions', outputFileName: 'unocss.rule.d.ts' },
-    { configs: vue(), exportName: 'VueRuleOptions', outputFileName: 'vue.rule.d.ts' }
+    { configs: perfectionist(), exportName: 'Perfectionist', outputFileName: 'perfectionist' },
+    { configs: react(), exportName: 'React', outputFileName: 'react' },
+    { configs: unocss(), exportName: 'UnoCSS', outputFileName: 'unocss' },
+    { configs: vue(), exportName: 'Vue', outputFileName: 'vue' }
   ]
 
   const promises = ruleOptions.map(({ configs, exportName, outputFileName }) => {
-    return extractRuleTypes(configs, resolve(ROOT_DIR, outputFileName), exportName)
+    return extractRuleTypes(configs, resolve(ROOT_DIR, `${outputFileName}.rule.d.ts`), `${exportName}RuleOptions`)
   })
 
   return Promise.all(promises)

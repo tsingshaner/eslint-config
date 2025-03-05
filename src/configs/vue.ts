@@ -132,7 +132,7 @@ export const vue = ({ rules, version = 3 }: VueConfigOverrideOptions = {}): VueC
       'vue/comma-dangle': ['warn', 'never'],
       'vue/comma-spacing': ['warn', { after: true, before: false }],
       'vue/comma-style': ['warn', 'last'],
-      'vue/component-tags-order': 'off',
+      'vue/custom-event-name-casing': ['warn', 'kebab-case'],
       'vue/html-comment-content-spacing': ['warn', 'always', { exceptions: ['-'] }],
       'vue/key-spacing': ['error', { afterColon: true, beforeColon: false }],
       'vue/keyword-spacing': ['error', { after: true, before: true }],

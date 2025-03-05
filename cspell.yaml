@@ -2,6 +2,8 @@
 language: en
 useGitignore: true
 ignoreRandomStrings: true
+ignorePaths:
+  - .gitignore
 
 words:
   - alova
@@ -21,6 +23,7 @@ words:
   - consola
   - cottonjs
   - dbaeumer
+  - demi
   - depazer
   - devicon
   - dimm
@@ -43,6 +46,7 @@ words:
   - jsonwebtoken
   - keyval
   - kleur
+  - klona
   - lightningcss
   - localstorage
   - middlewares
@@ -57,6 +61,7 @@ words:
   - nprogress
   - Nuxt
   - nuxtjs
+  - ofetch
   - oklch
   - onpipe
   - openapi
@@ -73,6 +78,7 @@ words:
   - qingshaner
   - rolldown
   - rushstack
+  - scule
   - shiki
   - sider
   - sublist
@@ -94,6 +100,7 @@ words:
   - vcard
   - Vercel
   - verifycode
+  - vite
   - vitepress
   - Vitest
   - vuejs

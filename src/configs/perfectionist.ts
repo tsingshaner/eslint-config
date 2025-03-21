@@ -91,7 +91,7 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
     'perfectionist/sort-modules': [
       'warn',
       {
-        newlinesBetween: 'always',
+        newlinesBetween: 'ignore',
         partitionByComment: true,
         type: 'natural'
       }

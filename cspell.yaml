@@ -8,6 +8,7 @@ ignorePaths:
 words:
   - alova
   - arcoblue
+  - arrayable
   - astro
   - astrojs
   - attributify
@@ -15,6 +16,7 @@ words:
   - bson
   - Cascader
   - chindings
+  - citty
   - cmds
   - CNPM
   - Codecov
@@ -41,6 +43,7 @@ words:
   - heroicons
   - icns
   - iconify
+  - inplace
   - intlify
   - jdbc
   - jsonwebtoken
@@ -70,6 +73,7 @@ words:
   - palenight
   - Parens
   - persistedstate
+  - picklist
   - picocolors
   - pinia
   - pino

@@ -1,5 +1,15 @@
 # @qingshaner/eslint-config
 
+## 0.12.1
+
+### Patch Changes
+
+- 8c720a0: bump dependencies
+
+  - preset `perfectionist/sort-modules` rule ignore newlinesBetween.
+
+- 44215c7: Bump dependencies
+
 ## 0.12.0
 
 ### Minor Changes

@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.12.2
+
+### Patch Changes
+
+- a1414a9: Bump dependencies
+
 ## 0.12.1
 
 ### Patch Changes

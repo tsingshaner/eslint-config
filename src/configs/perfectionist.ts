@@ -92,7 +92,7 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
       'warn',
       {
         newlinesBetween: 'ignore',
-        partitionByComment: true,
+        partitionByNewLine: true,
         type: 'natural'
       }
     ],

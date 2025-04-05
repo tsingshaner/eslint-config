@@ -1,5 +1,15 @@
 # @qingshaner/eslint-config
 
+## 0.13.0
+
+### Minor Changes
+
+- 9f0aa25: Bump eslint to v9.24.0
+
+### Patch Changes
+
+- 872773c: Fix biome unsupport vue template
+
 ## 0.12.2
 
 ### Patch Changes

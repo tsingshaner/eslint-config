@@ -103,7 +103,7 @@ export const presetESLintConfig = async ({
     const overrideRules = {
       'vue/order-in-components': 'off',
       'vue/sort-keys': 'off'
-    } satisfies TypeScriptOverrideOptions['rules'] & VueRuleOptions
+    } satisfies VueRuleOptions
 
     vueOpts =
       typeof vueOpts === 'boolean'
@@ -121,18 +121,9 @@ export const presetESLintConfig = async ({
 
   configs.push(...(await applyConfig(vue, vueOpts)))
   configs.push(...(await applyConfig(unocss, unocssOpts)))
+
   if (biome) {
     configs.push(banBiomeRepetitiveConfig())
-  }
-
-  if (vueOpts) {
-    configs.push({
-      files: [GLOB_VUE],
-      name: 'qingshaner/patch/vue',
-      rules: {
-        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
-      }
-    } as TypeScriptConfig)
   }
 
   return configs.concat(...extra)

@@ -15,6 +15,7 @@ import {
   unocss,
   vue
 } from './configs'
+import { GLOB_VUE } from './globs'
 
 import type {
   A11yOverrideOptions,
@@ -23,6 +24,7 @@ import type {
   JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
   ReactOverrideOptions,
+  TypeScriptConfig,
   TypeScriptOverrideOptions,
   UnoCSSOverrideOptions,
   VueConfigOverrideOptions
@@ -101,7 +103,7 @@ export const presetESLintConfig = async ({
     const overrideRules = {
       'vue/order-in-components': 'off',
       'vue/sort-keys': 'off'
-    } satisfies VueRuleOptions
+    } satisfies TypeScriptOverrideOptions['rules'] & VueRuleOptions
 
     vueOpts =
       typeof vueOpts === 'boolean'
@@ -119,7 +121,19 @@ export const presetESLintConfig = async ({
 
   configs.push(...(await applyConfig(vue, vueOpts)))
   configs.push(...(await applyConfig(unocss, unocssOpts)))
-  configs.push(...extra)
+  if (biome) {
+    configs.push(banBiomeRepetitiveConfig())
+  }
 
-  return biome ? configs.concat(banBiomeRepetitiveConfig()) : configs
+  if (vueOpts) {
+    configs.push({
+      files: [GLOB_VUE],
+      name: 'qingshaner/patch/vue',
+      rules: {
+        '@typescript-eslint/no-unused-vars': ['warn', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }]
+      }
+    } as TypeScriptConfig)
+  }
+
+  return configs.concat(...extra)
 }

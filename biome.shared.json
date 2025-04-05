@@ -11,6 +11,17 @@
           }
         }
       }
+    },
+    {
+      "include": ["*.vue"],
+      "linter": {
+        "rules": {
+          "correctness": {
+            "useHookAtTopLevel": "off",
+            "noUnusedVariables": "off"
+          }
+        }
+      }
     }
   ],
   "organizeImports": {

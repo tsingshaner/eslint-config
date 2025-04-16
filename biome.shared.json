@@ -18,7 +18,8 @@
         "rules": {
           "correctness": {
             "useHookAtTopLevel": "off",
-            "noUnusedVariables": "off"
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
           }
         }
       }

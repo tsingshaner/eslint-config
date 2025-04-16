@@ -8,10 +8,12 @@ ignorePaths:
 words:
   - alova
   - arcoblue
+  - argb
   - arrayable
   - astro
   - astrojs
   - attributify
+  - autodocs
   - biomejs
   - bson
   - Cascader
@@ -24,6 +26,7 @@ words:
   - composables
   - consola
   - cottonjs
+  - culori
   - dbaeumer
   - demi
   - depazer

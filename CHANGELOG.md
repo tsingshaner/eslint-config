@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 0.13.1
+
+### Patch Changes
+
+- 7fd4433: Bump eslint to v9.25
+
 ## 0.13.0
 
 ### Minor Changes

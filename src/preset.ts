@@ -15,7 +15,6 @@ import {
   unocss,
   vue
 } from './configs'
-import { GLOB_VUE } from './globs'
 
 import type {
   A11yOverrideOptions,
@@ -24,7 +23,6 @@ import type {
   JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
   ReactOverrideOptions,
-  TypeScriptConfig,
   TypeScriptOverrideOptions,
   UnoCSSOverrideOptions,
   VueConfigOverrideOptions

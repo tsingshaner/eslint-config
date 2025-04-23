@@ -87,7 +87,10 @@ export const presetESLintConfig = async ({
   vue: vueOpts
 }: PresetOptions): Promise<ESLintConfig[]> => {
   const configs: ESLintConfig[] = [
-    defineGlobalIgnore(ignores[1] ?? [], ignores[0]),
+    defineGlobalIgnore(
+      ['bun.lock', 'bun.lockb', 'package-lock.json', 'pnpm-lock.yaml', 'yarn.lock', ...(ignores[1] ?? [])],
+      ignores[0]
+    ),
     javascript()
   ] satisfies ESLintConfig[]
 

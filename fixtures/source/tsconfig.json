@@ -1,14 +1,14 @@
 {
   "compilerOptions": {
-    "target": "es2023",
+    "target": "esnext",
     "jsx": "react",
-    "lib": ["esnext", "DOM"],
+    "lib": ["esnext"],
     "useDefineForClassFields": true,
-    "rootDir": "..",
+    "baseUrl": ".",
+    "rootDir": "../..",
     "module": "esnext",
-    "moduleResolution": "node",
+    "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": [],
     "strict": true,
     "strictNullChecks": true,
     "alwaysStrict": true,
@@ -18,5 +18,5 @@
     "verbatimModuleSyntax": true,
     "skipLibCheck": true
   },
-  "include": ["./*.ts", "./*.tsx", "./**/*.vue", "./*.mts"]
+  "include": ["./*.ts", "./*.tsx", "./*.vue", "./*.mts", "../../eslint.config.ts"]
 }

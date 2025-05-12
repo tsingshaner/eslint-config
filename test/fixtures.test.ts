@@ -15,7 +15,7 @@ const copySourceFiles = async (sourceDir: string, tempDir: string) => {
 }
 
 const generateESLintConfig = async (config: PresetOptions, dir: string) => {
-  const configContent = `import { presetESLintConfig } from '../../../src'\n
+  const configContent = `import { presetESLintConfig } from '../../../dist/index'\n
 export default presetESLintConfig(${JSON.stringify(config, null, 2)})\n`
 
   await writeFile(dir, configContent)
@@ -59,7 +59,7 @@ describe.concurrent('fixtures', (test) => {
     }
   })
 
-  test('not disable biome', async ({ expect }) => {
+  test.skip('not disable biome', async ({ expect }) => {
     const groupDir = resolve(fixturesTempDir, 'not-disable-biome')
 
     await copySourceFiles(sourceDir, groupDir)

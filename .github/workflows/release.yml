@@ -36,11 +36,11 @@ jobs:
       - name: Gen code
         run: pnpm gen
 
-      - name: Unit Test
-        run: pnpm test
-
       - name: Run build
         run: pnpm build
+
+      - name: Unit Test
+        run: pnpm test
 
       - name: Create Release Pull Request
         id: changesets

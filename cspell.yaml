@@ -5,17 +5,24 @@ ignoreRandomStrings: true
 ignorePaths:
   - .gitignore
 
-words:
-  - alova
+ignoreWords:
   - arcoblue
-  - argb
   - arrayable
-  - astro
-  - astrojs
   - attributify
   - autodocs
-  - biomejs
   - bson
+  - depazer
+  - exportparts
+  - jsonwebtoken
+  - keyval
+  - localstorage
+
+words:
+  - alova
+  - argb
+  - astro
+  - astrojs
+  - biomejs
   - Cascader
   - chindings
   - citty
@@ -29,32 +36,28 @@ words:
   - culori
   - dbaeumer
   - demi
-  - depazer
   - devicon
   - dimm
   - doption
   - dotenv
   - dragended
   - dragstarted
-  - exportparts
   - fastify
   - Filenaming
   - fullscreen
   - gitmoji
   - gonic
   - GOPROXY
+  - HARMONYOS
   - heroicons
   - icns
   - iconify
   - inplace
   - intlify
   - jdbc
-  - jsonwebtoken
-  - keyval
   - kleur
   - klona
   - lightningcss
-  - localstorage
   - middlewares
   - MIMO
   - mingcute
@@ -89,6 +92,7 @@ words:
   - scule
   - shiki
   - sider
+  - sonner
   - sublist
   - sviridis
   - swaggo
@@ -100,11 +104,13 @@ words:
   - trpc
   - tsup
   - typeorm
+  - unjs
   - unmock
   - unocss
   - unplugin
   - valibot
   - valueobject
+  - vant
   - vcard
   - Vercel
   - verifycode

@@ -23,6 +23,16 @@
           }
         }
       }
+    },
+    {
+      "include": ["*.d.ts"],
+      "linter": {
+        "rules": {
+          "style": {
+            "useNamingConvention": "off"
+          }
+        }
+      }
     }
   ],
   "organizeImports": {

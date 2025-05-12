@@ -125,6 +125,15 @@ export const presetESLintConfig = async ({
 
   if (biome) {
     configs.push(banBiomeRepetitiveConfig())
+    if (vueOpts) {
+      configs.push({
+        files: ['**/*.vue'],
+        name: 'qingshaner/biome/patch/vue',
+        rules: {
+          '@typescript-eslint/no-unused-vars': 1
+        }
+      })
+    }
   }
 
   return configs.concat(...extra)

@@ -74,7 +74,7 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
           'type',
           'internal',
           'internal-type',
-          ['parent', 'sibling', 'index', 'object'],
+          ['parent', 'sibling', 'index'],
           'component',
           ['parent-type', 'sibling-type', 'index-type'],
           'style',

@@ -15,6 +15,7 @@ interface RuleConfig {
 }
 
 await main()
+
 async function extractRuleTypes(
   configs: Linter.Config[],
   output: Parameters<typeof writeFile>[0],
@@ -51,5 +52,93 @@ async function main() {
     return extractRuleTypes(configs, resolve(ROOT_DIR, `${outputFileName}.rule.d.ts`), `${exportName}RuleOptions`)
   })
 
-  return Promise.all(promises)
+  await Promise.all(promises)
+
+  return writeFile(
+    resolve(ROOT_DIR, 'perfectionist.rule.d.ts'),
+    `\ndeclare type PerfectionistSortImports = []|[_PerfectionistSortImportsMaxLineLengthRequiresLineLengthType & {
+
+    fallbackSort?: {
+
+        order?: ("asc" | "desc")
+
+        type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+        [k: string]: unknown | undefined
+    }
+
+    specialCharacters?: ("remove" | "trim" | "keep")
+
+    ignoreCase?: boolean
+
+    alphabet?: string
+
+    locales?: (string | string[])
+
+    order?: ("asc" | "desc")
+
+    type?: ("alphabetical" | "natural" | "line-length" | "custom" | "unsorted")
+
+    customGroups?: {
+
+        value?: {
+            [k: string]: unknown | undefined
+        }
+
+        type?: {
+            [k: string]: unknown | undefined
+        }
+    }
+
+    maxLineLength?: number
+
+    sortSideEffects?: boolean
+
+    environment?: ("node" | "bun")
+
+    tsconfigRootDir?: string
+
+    partitionByComment?: (boolean | (({
+        pattern?: string
+        flags?: string
+    } | string)[] | ({
+        pattern?: string
+        flags?: string
+    } | string)) | {
+        block?: (boolean | (({
+            pattern?: string
+            flags?: string
+        } | string)[] | ({
+            pattern?: string
+            flags?: string
+        } | string)))
+        line?: (boolean | (({
+            pattern?: string
+            flags?: string
+        } | string)[] | ({
+            pattern?: string
+            flags?: string
+        } | string)))
+    })
+
+    partitionByNewLine?: boolean
+
+    newlinesBetween?: ("ignore" | "always" | "never")
+
+    internalPattern?: (({
+        pattern?: string
+        flags?: string
+    } | string)[] | ({
+        pattern?: string
+        flags?: string
+    } | string))
+
+    groups?: (string | string[] | {
+
+        newlinesBetween?: ("ignore" | "always" | "never")
+    })[]
+}]`,
+    {
+      flag: 'a'
+    }
+  )
 }

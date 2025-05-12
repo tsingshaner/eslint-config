@@ -1,5 +1,14 @@
 # @qingshaner/eslint-config
 
+## 0.13.1
+
+### Patch Changes
+
+- d3314e9: Bump dependencies
+- 61a3290: Preset auto ignore packageManager lockfiles.
+- 7add483: Fix vue unused-vars error
+- 7fd4433: Bump eslint to v9.25
+
 ## 0.13.0
 
 ### Minor Changes

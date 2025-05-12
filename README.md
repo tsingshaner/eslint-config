@@ -96,7 +96,7 @@ JavaScript, TypeScript, CSS is formatted by Biome.
 ### JSON or JSONC
 
 `antfu/sort/package-json` is used to sort `package.json`.
-`antfu/sort/tsonfig-json` is used to sort `*.tsconfig.json`.
+`antfu/sort/tsconfig-json` is used to sort `*.tsconfig.json`.
 
 Include plugins
 
@@ -115,7 +115,7 @@ Include plugins
 
 Format code with `Prettier`, if the file can't be formatted by `Biome`, it will be formatted by `Prettier`.
 
-Incude plugins
+Include plugins
 
 - [`eslint-plugin-prettier`](https://www.npmjs.com/package/eslint-plugin-prettier)
 

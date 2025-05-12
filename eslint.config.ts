@@ -6,7 +6,7 @@ export default presetESLintConfig({
   a11y: true,
   biome: true,
   cspell: { configFile: resolve(__dirname, 'cspell.yaml') },
-  ignores: [resolve(__dirname, '.gitignore'), ['pnpm-lock.yaml', 'fixtures/**/*']],
+  ignores: [resolve(__dirname, '.gitignore'), ['fixtures/**/*']],
   jsonc: true,
   perfectionist: true,
   prettier: true,

@@ -38,7 +38,7 @@ const ignoredPlugins: Readonly<string[]> = [
 
 const fetchBiomeRulesMdx = async () => {
   const res = await fetch(
-    'https://raw.githubusercontent.com/biomejs/website/main/src/content/docs/linter/rules-sources.mdx'
+    'http://raw.githubusercontent.com/biomejs/website/main/src/content/docs/linter/rules-sources.mdx'
   )
 
   return res.text()

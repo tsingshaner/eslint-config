@@ -1,8 +1,29 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+  "assist": {
+    "actions": {
+      "source": {
+        "organizeImports": {
+          "level": "on",
+          "options": {
+            "groups": [
+              [":URL:", ":BUN:", ":NODE:"],
+              [":PACKAGE_WITH_PROTOCOL:", ":PACKAGE:"],
+              ":BLANK_LINE:",
+              [":ALIAS:"],
+              ":BLANK_LINE:",
+              [":PATH:"]
+            ]
+          }
+        },
+        "useSortedAttributes": "on",
+        "useSortedProperties": "on"
+      }
+    }
+  },
   "overrides": [
     {
-      "include": ["*.svelte", "*.astro", "*.vue"],
+      "includes": ["*.svelte", "*.astro", "*.vue"],
       "linter": {
         "rules": {
           "style": {
@@ -13,7 +34,7 @@
       }
     },
     {
-      "include": ["*.vue"],
+      "includes": ["*.vue"],
       "linter": {
         "rules": {
           "correctness": {
@@ -25,7 +46,7 @@
       }
     },
     {
-      "include": ["*.d.ts"],
+      "includes": ["*.d.ts"],
       "linter": {
         "rules": {
           "style": {
@@ -35,9 +56,6 @@
       }
     }
   ],
-  "organizeImports": {
-    "enabled": true
-  },
   "files": {
     "ignoreUnknown": true
   },
@@ -61,13 +79,20 @@
       "trailingCommas": "none",
       "lineWidth": 100
     },
-    "parser": { "allowComments": true },
-    "linter": { "enabled": true }
+    "parser": {
+      "allowComments": true
+    },
+    "linter": {
+      "enabled": true
+    }
   },
   "linter": {
     "enabled": true,
     "rules": {
-      "a11y": { "recommended": true },
+      "a11y": {
+        "recommended": true,
+        "useAriaPropsSupportedByRole": "error"
+      },
       "complexity": {
         "recommended": true,
         "noExcessiveCognitiveComplexity": {
@@ -81,7 +106,7 @@
       },
       "correctness": {
         "noConstantMathMinMaxClamp": "error",
-        "noInvalidNewBuiltin": "error",
+        "noSwitchDeclarations": "error",
         "noUndeclaredDependencies": "error",
         "noUnusedImports": {
           "level": "warn",
@@ -94,22 +119,21 @@
         "useHookAtTopLevel": "error"
       },
       "nursery": {
+        "useSortedClasses": "error"
+      },
+      "recommended": true,
+      "style": {
+        "recommended": true,
+        "noYodaExpression": "info",
         "useAtIndex": "info",
-        "useSortedClasses": "error",
-        "useAriaPropsSupportedByRole": "error",
+        "useBlockStatements": "warn",
+        "useCollapsedIf": "warn",
         "useComponentExportOnlyModules": {
           "level": "error",
           "options": {
             "allowConstantExport": true
           }
         },
-        "useCollapsedIf": "warn"
-      },
-      "recommended": true,
-      "style": {
-        "recommended": true,
-        "noYodaExpression": "info",
-        "useBlockStatements": "warn",
         "useConsistentArrayType": "warn",
         "useExplicitLengthCheck": "info",
         "useFilenamingConvention": {
@@ -128,24 +152,29 @@
           "options": {
             "conventions": [
               {
-                "selector": { "kind": "const" },
+                "selector": {
+                  "kind": "const"
+                },
                 "formats": ["camelCase", "CONSTANT_CASE", "PascalCase"]
+              },
+              {
+                "selector": {
+                  "kind": "enumMember"
+                },
+                "formats": ["PascalCase"]
               }
             ],
             "strictCase": false,
-            "enumMemberCase": "PascalCase",
             "requireAscii": true
           }
         },
         "useNodeAssertStrict": "info",
-        "useShorthandArrayType": "info",
         "useShorthandAssign": "info",
-        "useSingleCaseStatement": "error",
         "useThrowOnlyError": "warn"
       },
       "suspicious": {
         "recommended": true,
-        "noConsoleLog": "warn",
+        "noConsole": "warn",
         "noMisplacedAssertion": "warn",
         "useAwait": "info",
         "useErrorMessage": "warn"
@@ -153,7 +182,7 @@
     }
   },
   "css": {
-    "assists": {
+    "assist": {
       "enabled": true
     },
     "formatter": {
@@ -166,6 +195,11 @@
     "parser": {
       "allowWrongLineComments": true,
       "cssModules": false
+    }
+  },
+  "html": {
+    "formatter": {
+      "enabled": true
     }
   },
   "vcs": {

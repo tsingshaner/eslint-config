@@ -1,6 +1,7 @@
+import { rm } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import dts from 'vite-plugin-dts'
+import dts from 'unplugin-dts/rolldown'
 
 import type { UserConfig } from 'vite'
 import type { InlineConfig } from 'vitest/node'
@@ -18,17 +19,23 @@ export default {
       formats: ['es', 'cjs']
     },
     minify: false,
-    rollupOptions: {
-      external: (id) => Object.keys(pkgJSON.dependencies).includes(id) || id.startsWith('node:')
+    rolldownOptions: {
+      external: (id: string) => Object.keys(pkgJSON.dependencies).includes(id) || id.startsWith('node:')
     }
   },
   plugins: [
     dts({
+      bundleTypes: true,
       copyDtsFiles: true,
       include: ['src/**/*', 'src/**/*.d.ts'],
-      rollupTypes: true,
       tsconfigPath: resolve(root, 'tsconfig.json')
-    })
+    }),
+    {
+      async buildEnd() {
+        await rm(resolve(root, 'dist/src'), { force: true, recursive: true })
+      },
+      name: 'clean-dist'
+    }
   ],
   resolve: {
     alias: {

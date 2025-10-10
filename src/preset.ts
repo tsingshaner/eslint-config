@@ -95,6 +95,23 @@ export const presetESLintConfig = async ({
   configs.push(...(await applyConfig(a11y, a11yOpts)))
   configs.push(...(await applyConfig(cspell, cspellOpts)))
   configs.push(...(await applyConfig(jsonc, jsoncOpts)))
+
+  // if has biome, disable sort import & export rules
+  if (perfectionistOpts && biome) {
+    const overrideRules: PerfectionistOverrideOptions['rules'] = {
+      'perfectionist/sort-exports': 'off',
+      'perfectionist/sort-imports': 'off'
+    }
+    if (perfectionistOpts === true) {
+      perfectionistOpts = { rules: overrideRules }
+    } else {
+      perfectionistOpts.rules = {
+        ...overrideRules,
+        ...perfectionistOpts.rules
+      }
+    }
+  }
+
   configs.push(...(await applyConfig(perfectionist, perfectionistOpts)))
   configs.push(...(await applyConfig(prettier, prettierOpts)))
   configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))

@@ -1,8 +1,8 @@
 import { writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 
-import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 import { builtinRules } from 'eslint/use-at-your-own-risk'
+import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 
 import type { Linter } from 'eslint'
 

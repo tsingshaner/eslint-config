@@ -1,0 +1,6 @@
+{
+  "extends": ["../../../biome.shared.json"],
+  "files": {
+    "includes": ["./*"]
+  }
+}

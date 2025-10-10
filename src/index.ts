@@ -1,9 +1,10 @@
-export type * from './a11y.rule'
 export * from './configs'
+export { defineESLintConfig, presetESLintConfig } from './preset'
+
+export type * from './a11y.rule'
 export type * from './javascript.rule'
 export type * from './jsonc.rule'
 export type * from './perfectionist.rule'
-export { defineESLintConfig, presetESLintConfig } from './preset'
 export type * from './prettier-rule'
 export type * from './react.rule'
 export type * from './typescript.rule'

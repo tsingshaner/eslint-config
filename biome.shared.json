@@ -7,10 +7,20 @@
           "level": "on",
           "options": {
             "groups": [
+              { "type": false, "source": [":URL:", ":BUN:", ":NODE:"] },
+              ":BLANK_LINE:",
               [":URL:", ":BUN:", ":NODE:"],
+              { "type": false, "source": [":PACKAGE_WITH_PROTOCOL:", ":PACKAGE:"] },
+              ":BLANK_LINE:",
               [":PACKAGE_WITH_PROTOCOL:", ":PACKAGE:"],
               ":BLANK_LINE:",
+              { "type": false, "source": [":ALIAS:", "~/**/*"] },
+              ":BLANK_LINE:",
               [":ALIAS:"],
+              ":BLANK_LINE:",
+              { "type": false, "source": ["**/*.vue", "**/*.tsx"] },
+              ":BLANK_LINE:",
+              { "type": false, "source": [":PATH:"] },
               ":BLANK_LINE:",
               [":PATH:"]
             ]

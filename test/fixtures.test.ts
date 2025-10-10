@@ -1,5 +1,5 @@
 import { exec } from 'node:child_process'
-import { cp, rm, writeFile } from 'node:fs/promises'
+import { cp, readFile, rm, writeFile } from 'node:fs/promises'
 import { resolve } from 'node:path'
 import { promisify } from 'node:util'
 
@@ -22,6 +22,8 @@ export default presetESLintConfig(${JSON.stringify(config, null, 2)})\n`
 }
 
 const runESLint = (configPath: string, runningDir: string) => `pnpm eslint -c ${configPath} ${runningDir} --fix`
+const _runBiome = (configPath: string, runningDir: string) =>
+  `pnpm biome check --config-path=${configPath} ${runningDir} --fix`
 
 describe.concurrent('fixtures', (test) => {
   const rootDir = resolve(import.meta.dirname, '..')
@@ -99,5 +101,11 @@ describe.concurrent('fixtures', (test) => {
         expect(stderr).contain(msg)
       }
     }
+
+    const formattedFilePath = resolve(groupDir, 'import-sort.ts')
+    const formattedFile = await readFile(formattedFilePath, 'utf-8')
+    await expect(formattedFile).toMatchFileSnapshot(
+      resolve(import.meta.dirname, 'snapshots', 'not-disable-biome-import-sort.ts.txt')
+    )
   })
 })

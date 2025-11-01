@@ -1,0 +1,11 @@
+import {} from 'node:child_process'
+import {} from 'node:fs/promises'
+
+import {} from '@eslint/compat'
+
+import {} from '../../../package.json' with { type: 'json' }
+import {} from '../../source/../source/jsx'
+import {} from './react-test'
+
+import './index.css'
+

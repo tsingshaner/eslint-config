@@ -1,6 +1,7 @@
-import { config, configs } from 'typescript-eslint'
+import { configs, parser, plugin } from 'typescript-eslint'
 
 import type { Linter } from 'eslint'
+import type { ConfigArray } from 'typescript-eslint'
 
 import { GLOB_TS, GLOB_TSX, GLOB_VUE } from '../globs'
 
@@ -14,8 +15,6 @@ export interface TypeScriptOverrideOptions {
   rules?: TypeScriptRuleOptions
 }
 
-type ConfigArray = (typeof configs)['recommendedTypeChecked']
-
 /**
  * Define a TypeScript config with overrides.
  * @param collection collection of TypeScript configs
@@ -25,7 +24,7 @@ type ConfigArray = (typeof configs)['recommendedTypeChecked']
 export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
   collection: T | T[],
   overrides?: TypeScriptOverrideOptions
-): TypeScriptConfig[] => {
+): ConfigArray => {
   const conf = Array.isArray(collection) ? collection.map((c) => configs[c]).flat(2) : configs[collection]
 
   const confArray = (Array.isArray(conf) ? conf : ([conf] as ConfigArray)).reduce<ConfigArray>((acc, c) => {
@@ -40,13 +39,22 @@ export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
     return acc
   }, [])
 
-  return config(...confArray, {
-    languageOptions: overrides?.languageOptions,
+  confArray.push({
+    languageOptions: {
+      parser,
+      sourceType: 'module',
+      ...overrides?.languageOptions
+    },
     name: 'qingshaner/typescript',
+    plugins: {
+      '@typescript-eslint': plugin
+    },
     rules: {
       ...overrides?.rules
     }
-  }) as TypeScriptConfig[]
+  })
+
+  return confArray
 }
 
 /**
@@ -54,7 +62,7 @@ export const defineTypeScriptConfig = <T extends TypeScriptConfigCollection>(
  * @param tsconfigRootDir root dir for tsconfig.json
  * @param overrides overrides for rules
  */
-export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): TypeScriptConfig[] => {
+export const typescript = (tsconfigRootDir: string, overrides?: TypeScriptOverrideOptions): ConfigArray => {
   return defineTypeScriptConfig(['base'], {
     languageOptions: {
       parserOptions: {

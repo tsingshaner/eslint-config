@@ -45,7 +45,10 @@ export default presetESLintConfig({
 
 ```
 
+### Biome
 Also provide a optional Biome configuration.
+> [!NOTE]
+> Biome `< 2.0` is not supported. Please upgrade to `>= 2.1`.
 
 `// biome.json`
 ```json
@@ -62,6 +65,7 @@ Also provide a optional Biome configuration.
 
 ```
 
+### CSpell
 You can import a cspell configuration file.
 
 `// cspell.yaml`

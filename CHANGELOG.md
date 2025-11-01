@@ -1,5 +1,12 @@
 # @qingshaner/eslint-config
 
+## 1.0.0
+
+### Major Changes
+
+- 2a012a1: Bump biomejs to v2
+- e1d1f6a: bump biome to v2
+
 ## 0.13.1
 
 ### Patch Changes

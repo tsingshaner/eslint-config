@@ -1,7 +1,7 @@
 {
   "name": "@qingshaner/eslint-config",
   "type": "module",
-  "version": "0.13.1",
+  "version": "1.0.0",
   "packageManager": "pnpm@10.12.2",
   "description": "ESLint configs for qingshaner",
   "author": {

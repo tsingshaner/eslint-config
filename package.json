@@ -51,7 +51,7 @@
     "format": "biome format . --write",
     "gen": "pnpm gen:biome && pnpm gen:types",
     "gen:biome": "node ./scripts/ban-biome-impl-rules.ts",
-    "gen:types": "node ./scripts/gen-rule-record-type.ts",
+    "gen:types": "tsx ./scripts/gen-rule-record-type.ts",
     "inspector": "pnpx @eslint/config-inspector",
     "lint": "biome lint . --write && eslint . --fix",
     "prepare": "simple-git-hooks",
@@ -116,6 +116,7 @@
     "lint-staged": "^16.4.0",
     "simple-git-hooks": "^2.13.1",
     "tsdown": "^0.21.10",
+    "tsx": "^4.21.0",
     "vitest": "^4.1.5"
   },
   "simple-git-hooks": {

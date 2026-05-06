@@ -101,10 +101,11 @@ export const presetESLintConfig = async ({
   // if has biome, disable sort import & export rules
   if (perfectionistOpts && biome) {
     const overrideRules: PerfectionistOverrideOptions['rules'] = {
-      'perfectionist/sort-named-imports': 'off',
-      'perfectionist/sort-jsx-props': 'off',
       'perfectionist/sort-exports': 'off',
-      'perfectionist/sort-imports': 'off'
+      'perfectionist/sort-imports': 'off',
+      'perfectionist/sort-jsx-props': 'off',
+      'perfectionist/sort-named-exports': 'off',
+      'perfectionist/sort-named-imports': 'off'
     }
     if (perfectionistOpts === true) {
       perfectionistOpts = { rules: overrideRules }

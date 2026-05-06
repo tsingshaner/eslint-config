@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/@biomejs/biome/configuration_schema.json",
   "extends": ["./biome.shared.json"],
+  "files": {
+    "includes": ["**/*", "!fixtures/**/*"]
+  },
   "overrides": [
     {
       "includes": ["scripts/**/*.ts"],
@@ -11,9 +14,16 @@
           }
         }
       }
+    },
+    {
+      "assist": {
+        "actions": {
+          "source": {
+            "useSortedKeys": "off"
+          }
+        }
+      },
+      "includes": ["package.json"]
     }
-  ],
-  "files": {
-    "includes": ["**/*", "!fixtures/**/*"]
-  }
+  ]
 }

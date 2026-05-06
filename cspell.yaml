@@ -42,6 +42,7 @@ words:
   - dotenv
   - dragended
   - dragstarted
+  - esbuild
   - fastify
   - Filenaming
   - fullscreen

@@ -23,8 +23,8 @@ export const javascript = (
   } & JavaScriptOverrideOptions
 ): JavaScriptConfig => {
   const overridesArg: JavaScriptOverrideOptions = {
-    rules: overrides?.rules,
-    languageOptions: {}
+    languageOptions: {},
+    rules: overrides?.rules
   }
 
   if (overrides?.globals && Array.isArray(overrides.globals) && overrides.globals.length > 0) {

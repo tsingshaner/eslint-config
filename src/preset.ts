@@ -60,6 +60,7 @@ export interface PresetOptions {
   extra?: (Configs | ESLintConfig)[]
   /** Ignore check files */
   ignores: [ignoreAbsolutePath: string, overrides?: string[]]
+  javascript?: Parameters<typeof javascript>[0]
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
@@ -76,6 +77,7 @@ export const presetESLintConfig = async ({
   cspell: cspellOpts,
   extra = [],
   ignores,
+  javascript: javascriptOpts,
   jsonc: jsoncOpts,
   perfectionist: perfectionistOpts,
   prettier: prettierOpts,
@@ -89,7 +91,7 @@ export const presetESLintConfig = async ({
       ['bun.lock', 'bun.lockb', 'package-lock.json', 'pnpm-lock.yaml', 'yarn.lock', ...(ignores[1] ?? [])],
       ignores[0]
     ),
-    javascript()
+    javascript(javascriptOpts)
   ] satisfies ESLintConfig[]
 
   configs.push(...(await applyConfig(a11y, a11yOpts)))
@@ -99,6 +101,8 @@ export const presetESLintConfig = async ({
   // if has biome, disable sort import & export rules
   if (perfectionistOpts && biome) {
     const overrideRules: PerfectionistOverrideOptions['rules'] = {
+      'perfectionist/sort-named-imports': 'off',
+      'perfectionist/sort-jsx-props': 'off',
       'perfectionist/sort-exports': 'off',
       'perfectionist/sort-imports': 'off'
     }
@@ -112,8 +116,11 @@ export const presetESLintConfig = async ({
     }
   }
 
+  if (!biome) {
+    configs.push(...(await applyConfig(prettier, prettierOpts)))
+  }
+
   configs.push(...(await applyConfig(perfectionist, perfectionistOpts)))
-  configs.push(...(await applyConfig(prettier, prettierOpts)))
   configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))
   configs.push(...(await applyConfig(react, reactOpts)))
 

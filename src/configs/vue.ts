@@ -63,7 +63,7 @@ export const defineVueConfig = ({ rules: ruleOverrides, version = 3 }: VueConfig
       },
       name: 'qingshaner/vue',
       plugins: {
-        vue: vuePlugin as VuePlugin
+        vue: vuePlugin
       }
     },
     {
@@ -82,7 +82,7 @@ export const defineVueConfig = ({ rules: ruleOverrides, version = 3 }: VueConfig
       },
       name: 'qingshaner/vue/rules',
       plugins: {
-        vue: vuePlugin as VuePlugin
+        vue: vuePlugin
       },
       processor: mergeProcessors([
         (vuePlugin as VuePlugin).processors['.vue'],

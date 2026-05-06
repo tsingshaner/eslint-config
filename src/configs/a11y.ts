@@ -54,7 +54,7 @@ export const defineA11yRules = ({ jsx = {}, vue = {} }: A11yOverrideOptions = {}
       files: vue.files ?? [GLOB_VUE],
       name: 'qingshaner/a11y/vue',
       rules: {
-        ...vueA11y.configs['flat/recommended'].at(-1)?.rules,
+        ...(vueA11y.configs['flat/recommended'].at(-1) as Linter.Config | undefined)?.rules,
         ...vue.rules
       }
     }

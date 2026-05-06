@@ -26,6 +26,7 @@
             ]
           }
         },
+        "useSortedKeys": "on",
         "useSortedAttributes": "on",
         "useSortedProperties": "on"
       }
@@ -39,6 +40,10 @@
           "style": {
             "useConst": "off",
             "useImportType": "off"
+          },
+          "correctness": {
+            "noUnusedVariables": "off",
+            "noUnusedImports": "off"
           }
         }
       }
@@ -48,9 +53,7 @@
       "linter": {
         "rules": {
           "correctness": {
-            "useHookAtTopLevel": "off",
-            "noUnusedVariables": "off",
-            "noUnusedImports": "off"
+            "useHookAtTopLevel": "off"
           }
         }
       }
@@ -208,8 +211,10 @@
     }
   },
   "html": {
+    "experimentalFullSupportEnabled": true,
     "formatter": {
-      "enabled": true
+      "enabled": true,
+      "selfCloseVoidElements": "always"
     }
   },
   "vcs": {

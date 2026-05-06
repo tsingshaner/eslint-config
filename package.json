@@ -2,7 +2,7 @@
   "name": "@qingshaner/eslint-config",
   "type": "module",
   "version": "1.0.0",
-  "packageManager": "pnpm@10.12.2",
+  "packageManager": "pnpm@11.0.6",
   "description": "ESLint configs for qingshaner",
   "author": {
     "name": "qingshaner",
@@ -22,15 +22,15 @@
   ],
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "import": "./dist/index.js",
+      "types": "./dist/src/index.d.mts",
+      "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
     },
     "./biome": "./biome.shared.json",
     "./cspell": "./cspell.yaml"
   },
-  "main": "dist/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "dist/index.mjs",
+  "types": "dist/src/index.d.mts",
   "files": [
     "biome.shared.json",
     "cspell.yaml",
@@ -45,13 +45,13 @@
     "registry": "https://registry.npmjs.org/"
   },
   "scripts": {
-    "build": "vite build",
+    "build": "tsdown",
     "changeset-version": "changeset version && node ./scripts/update-jsr-version.js",
     "changeset-publish": "changeset publish",
     "format": "biome format . --write",
     "gen": "pnpm gen:biome && pnpm gen:types",
-    "gen:biome": "tsx ./scripts/ban-biome-impl-rules.ts",
-    "gen:types": "tsx ./scripts/gen-rule-record-type.ts",
+    "gen:biome": "node ./scripts/ban-biome-impl-rules.ts",
+    "gen:types": "node ./scripts/gen-rule-record-type.ts",
     "inspector": "pnpx @eslint/config-inspector",
     "lint": "biome lint . --write && eslint . --fix",
     "prepare": "simple-git-hooks",
@@ -60,10 +60,10 @@
     "test:dev": "vitest"
   },
   "peerDependencies": {
-    "@biomejs/biome": ">=2.2.0",
-    "eslint": ">=9.30",
+    "@biomejs/biome": ">=2.4.0",
+    "eslint": ">=10.3",
     "react": ">=19.0.0",
-    "typescript": ">=5.9.0",
+    "typescript": ">=6.0.0",
     "unocss": ">=66.0.0",
     "vue": ">=3.5.0"
   },
@@ -88,47 +88,35 @@
     }
   },
   "dependencies": {
-    "@cspell/eslint-plugin": "^9.2.2",
-    "@eslint/js": "^9.39.0",
-    "@unocss/eslint-plugin": "^66.5.4",
+    "@cspell/eslint-plugin": "^10.0.0",
+    "@eslint/js": "^10.0.1",
+    "@unocss/eslint-plugin": "^66.6.8",
     "eslint-merge-processors": "^2.0.0",
-    "eslint-plugin-jsonc": "^2.21.0",
+    "eslint-plugin-jsonc": "^3.1.2",
     "eslint-plugin-jsx-a11y": "^6.10.2",
     "eslint-plugin-perfectionist": "^4.15.1",
-    "eslint-plugin-prettier": "^5.5.4",
+    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-plugin-vue": "^10.5.1",
-    "eslint-plugin-vuejs-accessibility": "^2.4.1",
+    "eslint-plugin-vue": "^10.9.1",
+    "eslint-plugin-vuejs-accessibility": "^2.5.0",
     "eslint-processor-vue-blocks": "^2.0.0",
-    "globals": "^16.4.0",
-    "typescript-eslint": "^8.46.2",
-    "vue-eslint-parser": "^10.2.0"
+    "globals": "^17.6.0",
+    "typescript-eslint": "^8.59.2",
+    "vue-eslint-parser": "^10.4.0"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.29.7",
-    "@eslint/compat": "^1.4.1",
-    "@microsoft/api-extractor": "^7.53.3",
-    "@types/node": "^24.9.2",
-    "@types/react": "^19.2.2",
-    "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.39.0",
-    "eslint-typegen": "^2.3.0",
-    "jiti": "^2.6.1",
-    "lint-staged": "^16.2.6",
+    "@changesets/cli": "^2.31.0",
+    "@eslint/compat": "^2.0.5",
+    "@types/node": "^24.12.2",
+    "@types/react": "^19.2.14",
+    "@vitest/coverage-v8": "^4.1.5",
+    "eslint": "^10.3.0",
+    "eslint-typegen": "^2.3.1",
+    "jiti": "^2.7.0",
+    "lint-staged": "^16.4.0",
     "simple-git-hooks": "^2.13.1",
-    "tsx": "^4.20.6",
-    "unplugin-dts": "1.0.0-beta.6",
-    "vite": "npm:rolldown-vite@^7.1.20",
-    "vite-plugin-dts": "^4.5.4",
-    "vitest": "^3.2.4"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "@biomejs/biome",
-      "esbuild",
-      "msw",
-      "simple-git-hooks"
-    ]
+    "tsdown": "^0.21.10",
+    "vitest": "^4.1.5"
   },
   "simple-git-hooks": {
     "pre-commit": "pnpm lint-staged",

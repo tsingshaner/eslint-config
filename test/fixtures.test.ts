@@ -15,7 +15,7 @@ const copySourceFiles = async (sourceDir: string, tempDir: string) => {
 }
 
 const generateESLintConfig = async (config: PresetOptions, dir: string) => {
-  const configContent = `import { presetESLintConfig } from '../../../dist/index'\n
+  const configContent = `import { presetESLintConfig } from '../../../dist/index.mjs'\n
 export default presetESLintConfig(${JSON.stringify(config, null, 2)})\n`
 
   await writeFile(dir, configContent)

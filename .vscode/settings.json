@@ -40,6 +40,6 @@
     "editor.defaultFormatter": "biomejs.biome"
   },
   "[html]": {
-    "editor.formatOnSave": false
+    "editor.defaultFormatter": "biomejs.biome"
   }
 }

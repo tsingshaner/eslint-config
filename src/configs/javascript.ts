@@ -8,12 +8,42 @@ import type { JavaScriptRuleOptions } from '../javascript.rule'
 // @ts-expect-error is valid
 export type JavaScriptConfig = Linter.Config<JavaScriptRuleOptions>
 export type JavaScriptConfigCollection = keyof typeof eslint.configs
+
 export interface JavaScriptOverrideOptions {
+  languageOptions?: {
+    globals?: GlobalBuildIn
+  }
   rules?: JavaScriptRuleOptions
 }
+type GlobalBuildIn = Record<string, 'off' | 'readonly' | 'writable' | boolean>
 
-export const javascript = (): JavaScriptConfig => {
-  return defineJavaScriptConfig('recommended')
+export const javascript = (
+  overrides?: {
+    globals?: (GlobalBuildIn | keyof typeof globals)[]
+  } & JavaScriptOverrideOptions
+): JavaScriptConfig => {
+  const overridesArg: JavaScriptOverrideOptions = {
+    rules: overrides?.rules,
+    languageOptions: {}
+  }
+
+  if (overrides?.globals && Array.isArray(overrides.globals) && overrides.globals.length > 0) {
+    overridesArg.languageOptions = {
+      globals: overrides.globals
+        .map((g) => {
+          if (typeof g === 'string') {
+            return globals[g]
+          }
+
+          return g
+        })
+        .reduce<GlobalBuildIn>((acc, g) => {
+          return Object.assign(acc, g)
+        }, {})
+    }
+  }
+
+  return defineJavaScriptConfig('recommended', overridesArg)
 }
 
 export const defineJavaScriptConfig = <T extends JavaScriptConfigCollection>(
@@ -31,11 +61,12 @@ export const defineJavaScriptConfig = <T extends JavaScriptConfigCollection>(
         ...globals.node,
         document: 'readonly',
         navigator: 'readonly',
-        window: 'readonly'
+        window: 'readonly',
+        ...overrides?.languageOptions?.globals
       }
     },
-    name: 'qingshaner/javascript',
     ...config,
+    name: 'qingshaner/javascript',
     rules: {
       ...config.rules,
       ...overrides?.rules

@@ -1,10 +1,10 @@
 {
+  "extends": "../../../tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
     "jsx": "react",
     "lib": ["esnext"],
     "useDefineForClassFields": true,
-    "baseUrl": ".",
     "rootDir": "../..",
     "module": "esnext",
     "moduleResolution": "bundler",

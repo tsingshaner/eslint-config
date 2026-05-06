@@ -1,6 +1,6 @@
 import reactPlugin from 'eslint-plugin-react'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 import { GLOB_SRC } from '../globs'
 
@@ -58,7 +58,7 @@ export const defineReactConfig = ({
       files: files,
       name: 'qingshaner/react',
       plugins: {
-        react: reactPlugin.configs.flat.recommended.plugins.react as ESLint.Plugin
+        react: reactPlugin.configs.flat.recommended.plugins.react
         // 'react-hooks': is implemented in Biome, so we can't use it directly
         // 'react-refresh': is implemented in Biome, so we can't use it directly
       },
@@ -73,7 +73,7 @@ export const defineReactConfig = ({
           defaultVersion: '',
           fragment: 'Fragment',
           pragma: 'React',
-          version: 'detect',
+          version: '19',
           ...settings
         }
       }

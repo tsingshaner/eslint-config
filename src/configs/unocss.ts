@@ -1,6 +1,6 @@
 import unocssPlugin from '@unocss/eslint-plugin'
 
-import type { ESLint, Linter } from 'eslint'
+import type { Linter } from 'eslint'
 
 import type { UnoCSSRuleOptions } from '../unocss.rule'
 
@@ -16,7 +16,7 @@ export const defineUnoCSSConfig = ({ files, rules }: UnoCSSOverrideOptions = {})
     {
       ...(files && { files }),
       name: 'qingshaner/unocss',
-      plugins: unocssPlugin.configs.flat.plugins as unknown as Record<'unocss', ESLint.Plugin>,
+      plugins: unocssPlugin.configs.flat.plugins,
       rules: {
         ...unocssPlugin.configs.flat.rules,
         ...rules

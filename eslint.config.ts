@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 
-import { presetESLintConfig } from './dist/index'
+import { presetESLintConfig } from './dist/index.mjs'
 
 export default presetESLintConfig({
   a11y: true,

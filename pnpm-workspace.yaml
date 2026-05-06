@@ -1,0 +1,8 @@
+allowBuilds:
+  '@parcel/watcher': false
+  bufferutil: true
+  canvas: false
+  esbuild: true
+  msw: false
+  simple-git-hooks: true
+  utf-8-validate: false

@@ -1,5 +1,15 @@
 # @qingshaner/eslint-config
 
+## 1.1.0
+
+### Minor Changes
+
+- e9960c2: Bump eslint-plugin-perfectionist
+- 1547fce: - Only support node 22+ now.
+  - Add javascript globals config options.
+  - Update dependencies.
+  - Update biome to v2.4.0.
+
 ## 1.0.0
 
 ### Major Changes

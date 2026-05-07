@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@biomejs/biome':
-        specifier: '>=2.4.0'
-        version: 2.4.14
       '@cspell/eslint-plugin':
         specifier: ^10.0.0
         version: 10.0.0(eslint@10.3.0(jiti@2.7.0))
@@ -69,6 +66,9 @@ importers:
         specifier: ^10.4.0
         version: 10.4.0(eslint@10.3.0(jiti@2.7.0))
     devDependencies:
+      '@biomejs/biome':
+        specifier: '>=2.4.0'
+        version: 2.4.14
       '@changesets/cli':
         specifier: ^2.31.0
         version: 2.31.0(@types/node@24.12.2)
@@ -201,6 +201,13 @@ packages:
     cpu: [x64]
     os: [linux]
     libc: [musl]
+
+  '@biomejs/cli-linux-x64@2.4.14':
+    resolution: {integrity: sha512-zHrlQZDBDUz4OLAraYpWKcnLS6HOewBFWYOzY91d1ZjdqZwibOyb6BEu6WuWLugyo0P3riCmsbV9UqV1cSXwQg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
 
   '@biomejs/cli-win32-arm64@2.4.14':
     resolution: {integrity: sha512-M3EH5hqOI/F/FUA2u4xcLoUgmxd218mvuj/6JL7Hv2toQvr2/AdOvKSpGkoRuWFCtQPVa+ZqkEV3Q5xBA9+XSA==}
@@ -3288,6 +3295,7 @@ snapshots:
       '@biomejs/cli-darwin-x64': 2.4.14
       '@biomejs/cli-linux-arm64': 2.4.14
       '@biomejs/cli-linux-arm64-musl': 2.4.14
+      '@biomejs/cli-linux-x64': 2.4.14
       '@biomejs/cli-linux-x64-musl': 2.4.14
       '@biomejs/cli-win32-arm64': 2.4.14
       '@biomejs/cli-win32-x64': 2.4.14
@@ -3305,6 +3313,9 @@ snapshots:
     optional: true
 
   '@biomejs/cli-linux-x64-musl@2.4.14':
+    optional: true
+
+  '@biomejs/cli-linux-x64@2.4.14':
     optional: true
 
   '@biomejs/cli-win32-arm64@2.4.14':

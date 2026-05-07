@@ -62,28 +62,28 @@ export const perfectionist = (overrides?: PerfectionistOverrideOptions): Perfect
     'perfectionist/sort-imports': [
       'warn',
       {
-        customGroups: {
-          type: {},
-          value: {
-            component: ['^@/.*\\.vue', '.*\\.vue']
+        customGroups: [
+          {
+            elementNamePattern: ['^@/.*\\.vue', '.*\\.vue'],
+            groupName: 'component'
           }
-        },
+        ],
         groups: [
-          'builtin',
-          'external',
-          'type',
-          'internal',
-          'internal-type',
-          ['parent', 'sibling', 'index'],
+          'value-builtin',
+          'value-internal',
+          'type-internal',
+          'value-external',
+          ['value-parent', 'value-sibling', 'value-index'],
+          ['type-parent', 'type-sibling', 'type-index'],
           'component',
-          ['parent-type', 'sibling-type', 'index-type'],
+          'type-import',
           'style',
           'side-effect-style',
           'unknown'
         ],
         ignoreCase: true,
         internalPattern: ['^@/.*', '^~/.*'],
-        newlinesBetween: 'always',
+        newlinesBetween: 1,
         partitionByComment: true,
         type: 'natural'
       }

@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- 9464caa: Release
+
 ## 1.1.0
 
 ### Minor Changes

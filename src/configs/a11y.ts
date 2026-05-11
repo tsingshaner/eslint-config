@@ -12,7 +12,7 @@ import type { A11yRuleOptions } from '../a11y.rule'
 // @ts-expect-error is valid
 export type A11yConfig = Linter.Config<A11yRuleOptions>
 export type A11yOverrideOptions = Partial<Record<'jsx' | 'vue', A11yOverrideOptionsItem>>
-export interface A11yOverrideOptionsItem {
+interface A11yOverrideOptionsItem {
   files?: string[]
   rules?: A11yRuleOptions
 }

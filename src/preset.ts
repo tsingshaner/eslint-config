@@ -31,7 +31,7 @@ import type { VendoredPrettierOptionsRequired } from './prettier-rule'
 import type { MaybePromise } from './type-utils'
 import type { VueRuleOptions } from './vue.rule'
 
-export type ESLintConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = ConfigWithExtends | Linter.Config<T>
+type ESLintConfig<T extends Linter.RulesRecord = Linter.RulesRecord> = ConfigWithExtends | Linter.Config<T>
 export const defineESLintConfig = (configs: () => MaybePromise<ESLintConfig[]>): MaybePromise<ESLintConfig[]> => {
   return configs instanceof Function ? configs() : configs
 }

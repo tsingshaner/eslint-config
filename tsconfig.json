@@ -8,7 +8,7 @@
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
-    "types": ["vitest", "node"],
+    "types": ["vitest", "node", "react"],
     "strict": true,
     "strictNullChecks": true,
     "alwaysStrict": true,

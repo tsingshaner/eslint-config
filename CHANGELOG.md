@@ -1,5 +1,12 @@
 # @qingshaner/eslint-config
 
+## 1.1.1
+
+### Patch Changes
+
+- 61d473a: - Normalize Changesets `config.json` (key ordering, `ignore` as an array).
+  - Extend exported `cspell` preset `ignorePaths` for npm/pnpm/yarn/bun lockfiles.
+
 ## 1.1.0
 
 ### Minor Changes

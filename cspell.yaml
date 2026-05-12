@@ -4,6 +4,14 @@ useGitignore: true
 ignoreRandomStrings: true
 ignorePaths:
   - .gitignore
+  - package-lock.json
+  - pnpm-lock.yaml
+  - yarn.lock
+  - bun.lockb
+  - bun.lock
+  - bun.lock.json
+  - bun.lock.yaml
+  - bun.lock.json
 
 ignoreWords:
   - arcoblue

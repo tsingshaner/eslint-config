@@ -1,5 +1,11 @@
 # @qingshaner/eslint-config
 
+## 1.1.2
+
+### Patch Changes
+
+- 374e5b5: Add cspell config
+
 ## 1.1.1
 
 ### Patch Changes

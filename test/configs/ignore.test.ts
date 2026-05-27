@@ -24,6 +24,7 @@ describe('test ignores config', (test) => {
         "**/.cache",
         "**/coverage",
         "**/node_modules",
+        "**/.DS_Store",
         "**/.eslintcache",
         ".changeset/README.md",
         "**/*.tsbuildinfo",

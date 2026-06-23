@@ -44,9 +44,7 @@ describe.concurrent('fixtures', (test) => {
         jsonc: true,
         perfectionist: true,
         prettier: true,
-        react: true,
         typescript: [groupDir],
-        unocss: true,
         vue: true
       },
       configPath
@@ -72,9 +70,7 @@ describe.concurrent('fixtures', (test) => {
         jsonc: true,
         perfectionist: true,
         prettier: true,
-        react: true,
         typescript: [groupDir],
-        unocss: true,
         vue: true
       },
       resolve(groupDir, 'eslint.config.mts')

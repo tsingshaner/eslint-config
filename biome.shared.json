@@ -20,9 +20,11 @@
               ":BLANK_LINE:",
               { "source": ["**/*.vue", "**/*.tsx"], "type": false },
               ":BLANK_LINE:",
-              { "source": [":PATH:"], "type": false },
+              { "source": [":PATH:", "!:STYLE:"], "type": false },
               ":BLANK_LINE:",
-              [":PATH:"]
+              [":PATH:", "!:STYLE:"],
+              ":BLANK_LINE:",
+              [":STYLE:"]
             ],
             "identifierOrder": "natural"
           }
@@ -46,7 +48,8 @@
     },
     "parser": {
       "allowWrongLineComments": true,
-      "cssModules": false
+      "cssModules": false,
+      "tailwindDirectives": true
     }
   },
   "files": {
@@ -90,7 +93,7 @@
     "enabled": true,
     "rules": {
       "a11y": {
-        "recommended": true,
+        "preset": "recommended",
         "useAriaPropsSupportedByRole": "error"
       },
       "complexity": {
@@ -101,7 +104,7 @@
           }
         },
         "noUselessStringConcat": "warn",
-        "recommended": true,
+        "preset": "recommended",
         "useSimplifiedLogicExpression": "warn"
       },
       "correctness": {
@@ -119,12 +122,15 @@
         "useHookAtTopLevel": "error"
       },
       "nursery": {
+        "noRestrictedDependencies": "error",
+        "noUndeclaredClasses": "warn",
+        "noUnusedClasses": "warn",
         "useSortedClasses": "error"
       },
-      "recommended": true,
+      "preset": "recommended",
       "style": {
         "noYodaExpression": "info",
-        "recommended": true,
+        "preset": "recommended",
         "useAtIndex": "info",
         "useBlockStatements": "warn",
         "useCollapsedIf": "warn",
@@ -175,7 +181,7 @@
       "suspicious": {
         "noConsole": "warn",
         "noMisplacedAssertion": "warn",
-        "recommended": true,
+        "preset": "recommended",
         "useAwait": "info",
         "useErrorMessage": "warn"
       }

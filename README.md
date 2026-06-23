@@ -48,7 +48,7 @@ export default presetESLintConfig({
 ### Biome
 Also provide a optional Biome configuration.
 > [!NOTE]
-> Biome `< 2.0` is not supported. Please upgrade to `>= 2.1`.
+> Biome `< 2.5` is not supported. Please upgrade to `>= 2.5`.
 
 `// biome.json`
 ```json
@@ -123,14 +123,6 @@ Include plugins
 
 - [`eslint-plugin-prettier`](https://www.npmjs.com/package/eslint-plugin-prettier)
 
-### React
-
-For `React` project.
-
-Include plugins
-
-- [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)
-
 ### TypeScript
 
 For `TypeScript` project.
@@ -138,12 +130,6 @@ For `TypeScript` project.
 Include plugins
 
 - [`typescript-eslint`](https://www.npmjs.com/package/typescript-eslint)
-
-### UnoCSS
-
-Include plugins
-
-- [`@unocss/eslint-plugin`](https://www.npmjs.com/package/@unocss/eslint-config)
 
 ### Vue
 

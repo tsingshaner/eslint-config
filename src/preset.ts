@@ -10,9 +10,7 @@ import {
   jsonc,
   perfectionist,
   prettier,
-  react,
   typescript,
-  unocss,
   vue
 } from './configs'
 
@@ -22,9 +20,7 @@ import type {
   CSpellOverrideOptions,
   JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
-  ReactOverrideOptions,
   TypeScriptOverrideOptions,
-  UnoCSSOverrideOptions,
   VueConfigOverrideOptions
 } from './configs'
 import type { VendoredPrettierOptionsRequired } from './prettier-rule'
@@ -64,10 +60,7 @@ export interface PresetOptions {
   jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
-  react?: boolean | ReactOverrideOptions
   typescript?: [tsconfigDir: string, overrides?: TypeScriptOverrideOptions] | false
-  /** Enable `@unocss/eslint-plugin` */
-  unocss?: boolean | UnoCSSOverrideOptions
   /** Enable `eslint-plugin-vue` */
   vue?: boolean | VueConfigOverrideOptions
 }
@@ -81,9 +74,7 @@ export const presetESLintConfig = async ({
   jsonc: jsoncOpts,
   perfectionist: perfectionistOpts,
   prettier: prettierOpts,
-  react: reactOpts,
   typescript: typescriptOpts,
-  unocss: unocssOpts,
   vue: vueOpts
 }: PresetOptions): Promise<ESLintConfig[]> => {
   const configs: ESLintConfig[] = [
@@ -123,7 +114,6 @@ export const presetESLintConfig = async ({
 
   configs.push(...(await applyConfig(perfectionist, perfectionistOpts)))
   configs.push(...(Array.isArray(typescriptOpts) ? await applyConfig(typescript, ...typescriptOpts) : []))
-  configs.push(...(await applyConfig(react, reactOpts)))
 
   if (vueOpts && perfectionistOpts) {
     const overrideRules = {
@@ -146,7 +136,6 @@ export const presetESLintConfig = async ({
   }
 
   configs.push(...(await applyConfig(vue, vueOpts)))
-  configs.push(...(await applyConfig(unocss, unocssOpts)))
 
   if (biome) {
     configs.push(banBiomeRepetitiveConfig())

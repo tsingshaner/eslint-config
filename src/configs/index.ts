@@ -3,9 +3,7 @@ import type { JavaScriptConfig } from './javascript'
 import type { JSONCConfig } from './jsonc'
 import type { PerfectionistConfig } from './perfectionist'
 import type { PrettierConfig } from './prettier'
-import type { ReactConfig } from './react'
 import type { TypeScriptConfig } from './typescript'
-import type { UnoCSSConfig } from './unocss'
 import type { VueConfig } from './vue'
 
 export type {
@@ -14,9 +12,7 @@ export type {
   JSONCConfig,
   PerfectionistConfig,
   PrettierConfig,
-  ReactConfig,
   TypeScriptConfig,
-  UnoCSSConfig,
   VueConfig
 }
 
@@ -28,9 +24,7 @@ export { defineJavaScriptConfig, javascript } from './javascript'
 export { defineJSONCConfig, jsonc } from './jsonc'
 export { definePerfectionistConfig, perfectionist } from './perfectionist'
 export { definePrettierConfig, prettier } from './prettier'
-export { defineReactConfig, react } from './react'
 export { defineTypeScriptConfig, typescript } from './typescript'
-export { defineUnoCSSConfig, type UnoCSSOverrideOptions, unocss } from './unocss'
 export { defineVueConfig, type VueConfigOverrideOptions, vue } from './vue'
 
 export type { A11yConfig, A11yOverrideOptions } from './a11y'
@@ -39,7 +33,6 @@ export type { JavaScriptConfigCollection, JavaScriptOverrideOptions } from './ja
 export type { JSONCConfigCollection, JSONCConfigOverrideOptions } from './jsonc'
 export type { PerfectionistConfigCollection, PerfectionistOverrideOptions } from './perfectionist'
 export type { PrettierEnabledFiles } from './prettier'
-export type { ReactOverrideOptions } from './react'
 export type { TypeScriptConfigCollection, TypeScriptOverrideOptions } from './typescript'
 
 export type Configs =
@@ -48,7 +41,5 @@ export type Configs =
   | JSONCConfig
   | PerfectionistConfig
   | PrettierConfig
-  | ReactConfig
   | TypeScriptConfig
-  | UnoCSSConfig
   | VueConfig

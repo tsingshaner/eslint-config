@@ -6,7 +6,7 @@ import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 
 import type { Linter } from 'eslint'
 
-import { a11y, jsonc, perfectionist, react, typescript, unocss, vue } from '../src/configs'
+import { a11y, jsonc, perfectionist, typescript, vue } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]
@@ -43,8 +43,6 @@ async function main() {
       outputFileName: 'typescript'
     },
     { configs: perfectionist(), exportName: 'Perfectionist', outputFileName: 'perfectionist' },
-    { configs: react(), exportName: 'React', outputFileName: 'react' },
-    { configs: unocss(), exportName: 'UnoCSS', outputFileName: 'unocss' },
     { configs: vue(), exportName: 'Vue', outputFileName: 'vue' }
   ]
 

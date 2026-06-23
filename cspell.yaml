@@ -59,6 +59,7 @@ words:
   - GOPROXY
   - HARMONYOS
   - heroicons
+  - hono
   - icns
   - iconify
   - inplace
@@ -69,11 +70,13 @@ words:
   - knip
   - lightningcss
   - lintignore
+  - logtape
   - middlewares
   - MIMO
   - mingcute
   - mockjs
   - mojito
+  - neondatabase
   - nestjs
   - nitropack
   - nocheck

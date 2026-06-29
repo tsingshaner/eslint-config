@@ -1,4 +1,4 @@
-import { convertIgnorePatternToMinimatch, includeIgnoreFile } from '@eslint/compat'
+import { convertIgnorePatternToMinimatch, includeIgnoreFile } from '@eslint/config-helpers'
 
 import type { Linter } from 'eslint'
 

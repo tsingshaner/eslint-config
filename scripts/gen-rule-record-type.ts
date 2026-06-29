@@ -6,7 +6,7 @@ import { flatConfigsToRulesDTS } from 'eslint-typegen/core'
 
 import type { Linter } from 'eslint'
 
-import { a11y, jsonc, perfectionist, typescript, vue } from '../src/configs'
+import { a11y, perfectionist, typescript, vue } from '../src/configs'
 
 interface RuleConfig {
   configs: Linter.Config[]
@@ -36,7 +36,6 @@ async function main() {
       exportName: 'JavaScript',
       outputFileName: 'javascript'
     },
-    { configs: jsonc(), exportName: 'JSONC', outputFileName: 'jsonc' },
     {
       configs: typescript('tsconfigRootDir') as Linter.Config[],
       exportName: 'TypeScript',

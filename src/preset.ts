@@ -7,7 +7,6 @@ import {
   cspell,
   defineGlobalIgnore,
   javascript,
-  jsonc,
   perfectionist,
   prettier,
   typescript,
@@ -18,7 +17,6 @@ import type {
   A11yOverrideOptions,
   Configs,
   CSpellOverrideOptions,
-  JSONCConfigOverrideOptions,
   PerfectionistOverrideOptions,
   TypeScriptOverrideOptions,
   VueConfigOverrideOptions
@@ -57,7 +55,6 @@ export interface PresetOptions {
   /** Ignore check files */
   ignores: [ignoreAbsolutePath: string, overrides?: string[]]
   javascript?: Parameters<typeof javascript>[0]
-  jsonc?: boolean | JSONCConfigOverrideOptions
   perfectionist?: boolean | PerfectionistOverrideOptions
   prettier?: boolean | Partial<VendoredPrettierOptionsRequired>
   typescript?: [tsconfigDir: string, overrides?: TypeScriptOverrideOptions] | false
@@ -71,7 +68,6 @@ export const presetESLintConfig = async ({
   extra = [],
   ignores,
   javascript: javascriptOpts,
-  jsonc: jsoncOpts,
   perfectionist: perfectionistOpts,
   prettier: prettierOpts,
   typescript: typescriptOpts,
@@ -87,7 +83,6 @@ export const presetESLintConfig = async ({
 
   configs.push(...(await applyConfig(a11y, a11yOpts)))
   configs.push(...(await applyConfig(cspell, cspellOpts)))
-  configs.push(...(await applyConfig(jsonc, jsoncOpts)))
 
   // if has biome, disable sort import & export rules
   if (perfectionistOpts && biome) {

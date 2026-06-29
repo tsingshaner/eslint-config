@@ -7,9 +7,6 @@ export default defineConfig({
     '@': resolve(import.meta.dirname, 'src')
   },
   clean: true,
-  deps: {
-    onlyBundle: ['@eslint/compat']
-  },
   dts: {
     cjsReexport: true,
     oxc: true

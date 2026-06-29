@@ -36,7 +36,6 @@ export default presetESLintConfig({
   biome: true,
   cspell: { configFile: resolve(ROOT, 'cspell.yaml') }, // optional
   ignores: [resolve(ROOT, '.gitignore')],
-  jsonc: true,
   perfectionist: true,
   prettier: true,
   typescript: [ROOT],
@@ -96,16 +95,6 @@ JavaScript, TypeScript, CSS is formatted by Biome.
 ### CSpell
 
 [`@cspell/eslint-plugin`](https://cspell.org) is used to check spelling errors.
-
-### JSON or JSONC
-
-`antfu/sort/package-json` is used to sort `package.json`.
-`antfu/sort/tsconfig-json` is used to sort `*.tsconfig.json`.
-
-Include plugins
-
-- [`eslint-plugin-jsonc`](https://www.npmjs.com/package/eslint-plugin-jsonc)
-
 
 ### Perfectionist
 

@@ -41,7 +41,6 @@ describe.concurrent('fixtures', (test) => {
         a11y: true,
         biome: true,
         ignores: [resolve(groupDir, '.gitignore')],
-        jsonc: true,
         perfectionist: true,
         prettier: true,
         typescript: [groupDir],
@@ -67,7 +66,6 @@ describe.concurrent('fixtures', (test) => {
       {
         a11y: true,
         ignores: [resolve(groupDir, '.gitignore')],
-        jsonc: true,
         perfectionist: true,
         prettier: true,
         typescript: [groupDir],
